@@ -2,7 +2,8 @@ class TomcatLog:
     logType = "Tomcat"
     # Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
     # Style: DIM, NORMAL, BRIGHT, RESET_ALL
-    folderPath = r'F:\Work\Development\Freelance\ReadingLog\temp\tomcatLog'
+    folderPath = r'F:\Work\Development\Freelance\ReadingLog\temp\opt\tomcat\logs'
+    # folderPath = r'F:\Work\Development\Freelance\ReadingLog\temp\tomcatLog'
     preFileNameList = ["localhost_access_log."]
     zipExtension = "gz"
     color = "RESET"
@@ -13,7 +14,8 @@ class TomcatLog:
     dateOutputFormat = "%d/%b/%Y:%H:%M:%S"
     dateInputFormat = "%d/%b/%Y:%H:%M:%S"
     preFileNameForExport = "TomcatLog"
-    
+
+
 class ApacheLog:
     logType = "Apache"
     # Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
@@ -30,7 +32,8 @@ class ApacheLog:
     dateOutputFormat = "%d/%b/%Y:%H:%M:%S"
     dateInputFormat = "%d/%b/%Y:%H:%M:%S"
     preFileNameForExport = "ApacheLog"
-    
+
+
 class SysLog:
     logType = "System"
     # Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
@@ -48,7 +51,8 @@ class SysLog:
     dateOutputFormat = "%d/%b/%Y:%H:%M:%S"
     dateInputFormat = "%b %d %Y %H:%M:%S"
     preFileNameForExport = "SystemLog"
-    
+
+
 class Banner:
     # Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
     # Style: DIM, NORMAL, BRIGHT, RESET_ALL
@@ -75,12 +79,27 @@ class Banner:
  
     """
 
+
 class ExtendConfig:
-    filterTimeFormat= "%d/%b/%Y:%H:%M:%S"
+    filterTimeFormat = "%d/%b/%Y:%H:%M:%S"
     formatExampleForFilterTime = "18/Feb/2023:22:41:22"
-    
+
+
+class analyzeModeConfig:
+    nmapDetectionSignature = "nmaplowercheck"
+    metasploitDetectionSignature = "apache.catalina.filters"
+    displayTitle = "\n* Display logs:"
+    titleColor = "MAGENTA"
+    titleStyle = "BRIGHT"
+    reportFolder = r"F:\Work\Development\Freelance\ReadingLog\src\ReportTemplate\output.html"
+
+
+class DosDetectionConfig:
+    minimumRequest = 9000
+
+
 class MenuConfig:
-    keyMainOptions = ['1', '2', '3', '4']
+    keyMainOptions = ['1', '2', '3', '4', '5']
     keySubOptions = ['1', '2', '3', '4', '5', '6', '7']
     keySubOptionsForSysLog = ['1', '2', '3', '4', '5', '6']
     optionRequestColor = "BLUE"
@@ -93,7 +112,8 @@ class MenuConfig:
   1. Analyze Tomcat Log 
   2. Analyze Apache Log
   3. Analyze System Log
-  4. Exit    
+  4. Full Analysis
+  5. Exit    
 """
 
     subMenu = """
@@ -116,8 +136,14 @@ class MenuConfig:
   5. Export file
   6. Exit
 """
-    dateFilterMenu = """
-Please enter with format: dd-MM-yyyy-hh-mm-ss
-1. From Date
-2. To Date
-"""
+#     dateFilterMenu = """
+# Please enter with format: dd-MM-yyyy-hh-mm-ss
+# 1. From Date
+# 2. To Date
+# """
+
+#     dateForAnalysisReportMenu = """
+# Please enter a time range for processing with format: dd-MM-yyyy-hh-mm-ss
+# 1. From Date
+# 2. To Date
+# """

@@ -100,4 +100,4 @@ class Utils():
         except:
             Utils.printError("\n* Something went wrong with checkExistFolder function!")
             return False
-        
+    

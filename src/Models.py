@@ -30,6 +30,7 @@ class Tomcat:
             self.response_size = matches.group(7)
             self.isValidFormat = True
         else:
+            # print(rawLog)
             print("Log line did not match the expected format.")
         
     def display(self):

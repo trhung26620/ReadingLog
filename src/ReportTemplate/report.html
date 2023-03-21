@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="report.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="header-container">
+        <div class="title-container">
+            <p class="title-content">FLog Report</p>
+        </div>
+        <div class="info-container">
+            <div class="time-container">
+                <p class="time-text">
+                    <b>From:</b> {{data.filterDate.fromDate}}</br>
+                    <b>To:</b> {{data.filterDate.toDate}}
+                </p>
+            </div>
+            <hr>
+            <div class="log-path-container">
+                <p class="log-path-title"><b>Log Path:</b></p>
+                <ul class="path-log-list">
+                    <li>
+                        <p><span><b>&nbsp;- Tomcat:</b></span>
+                            {{data.pathLog.tomcatPath}}</p>
+                    </li>
+                    <li>
+                        <p><span><b>&nbsp;- Apache:</b></span> {{data.pathLog.apachePath}}
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <hr>
+        </div>
+
+        <div class="overall-asessment-container">
+            <p><b>Detected attack types:</b>
+                {{", ".join(data.detectedAttackType)}}
+            </p>
+            <!-- Nmap scanning, Metasploit attack, DoS -->
+        </div>
+    </div>
+
+    <div class="body-container">
+        <div class="body-titile-container">
+            <hr>
+            <h1 class="body-title">PoC</h1>
+        </div>
+        {% if 'Nmap scanning' in data.detectedAttackType%}
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">Nmap Scanning</p>
+                <p class="analyze-label">Signature: {{data.nmapScan.signature}}</p>
+            </div>
+            {% if data.nmapScan.logDataTomcat %}
+            <div class="log-area-container">
+                <label for="">Tomcat</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>{{ data.nmapScan.logDataTomcat }}</textarea>
+            </div>
+            {% endif %}
+            {% if data.nmapScan.logDataApache %}
+            <div class="log-area-container">
+                <label for="">Apache</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>{{ data.nmapScan.logDataApache }}</textarea>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% if 'Metasploit attack' in data.detectedAttackType%}
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">Metasploit Attack</p>
+                <p class="analyze-label">Signature: {{data.metasploitAttack.signature}}</p>
+            </div>
+            {% if data.metasploitAttack.logDataTomcat %}
+            <div class="log-area-container">
+                <label for="">Tomcat</label>
+                <textarea name="" id="" cols="30" rows="10"
+                    readonly>{{ data.metasploitAttack.logDataTomcat }}</textarea>
+            </div>
+            {% endif %}
+            {% if data.metasploitAttack.logDataApache %}
+            <div class="log-area-container">
+                <label for="">Apache</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>{{data.metasploitAttack.logDataApache}}</textarea>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% if data.dosAttack %}
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">DoS</p>
+                <!-- <p class="analyze-label">Signature: nmaplowercheck</p> -->
+            </div>
+
+            <div class="dos-ip-container">
+                <table>
+                    <tr>
+                        <th>Time</th>
+                        <th>IP</th>
+                        <th>Number of requests</th>
+                    </tr>
+
+                    {% for attack in data.dosAttack %}
+                    <tr>
+                        <td>
+                            <b>From:</b> {{attack.time}}</br>
+                        </td>
+                        <td>{{attack.ip}}</td>
+                        <td>{{attack.numOfReq}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="footer-container">
+        <div class="footer-content">
+            <p class="tool-introduction">
+                Flog v1.1.0</br>
+                <span class="code-by">Coded by Nhất Lợi, Gia Thuận, Hoài Tân, Đức Dương, Duy Luân</span></br></br>
+                It uses investigate what happened on a computer through viewing log files.</br>
+                You can even use it to identify web attacks.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

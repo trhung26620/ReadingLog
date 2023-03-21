@@ -49,6 +49,8 @@ class Log:
             Utils.printError("\n*Something went wrong with getAllLog function!")
             return []
 
+
+
     def logStrArrTologObjArr(logArr, logType):
         objArr = []
         try:
@@ -84,7 +86,7 @@ class Log:
         filteredObjArr = []
         try:
             for logObj in logObjArr:
-                if ip in logObj.ip_address:
+                if ip == logObj.ip_address:
                     filteredObjArr.append(logObj)
             return filteredObjArr
         except:
@@ -102,8 +104,8 @@ class Log:
                     filteredObjArr.append(logObj)
             return filteredObjArr
         except:
-            return filteredObjArr
-        
+            return filteredObjArr    
+
     def exportFile(logObjArr, folderPath, logConfig):
         try:
             logLineList = [] 
@@ -128,4 +130,35 @@ class Log:
                 return None
         except:
             Utils.printError("\n*Something went wrong with exportFile function!")
+            return None
+        
+    def countRequestById(logObjArr):
+        try:
+            data = dict()
+            if logObjArr:
+                for logObj in logObjArr:
+                    ipAddress = logObj.ip_address         
+                    if ipAddress not in data:
+                        data[ipAddress] = 1
+                    else:
+                        data[ipAddress]+=1
+                return data
+            else:
+                return data
+        except:
+            Utils.printError("\n*Something went wrong with countRequestById function!")
+        return None
+        
+    def getIpAddressListFromObjList(logObjArr):
+        ipList = list()
+        try:
+            if  logObjArr:
+                for logObj in logObjArr:
+                    if logObj.ip_address not in ipList:
+                        ipList.append(logObj.ip_address)
+                return ipList
+            else:
+                return ipList
+        except:
+            Utils.printError("\n*Something went wrong with getIpAddressListFromObjList function!")
             return None

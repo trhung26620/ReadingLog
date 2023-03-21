@@ -1,0 +1,158 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body{
+    overflow-y: auto;
+    background-color: rgb(253, 232, 232);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+.header-container{
+    max-width: 100vw;
+    background-color: rgb(253, 232, 232);
+    height: 220px;
+}
+.info-container{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.title-container{
+    width: 100%;
+    height: 80px;
+    background-color:black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+}
+.time-container{
+    padding: 5px 0;
+}
+.title-content{
+    color: rgb(253, 232, 232);
+    font-weight: 1000;
+    font-size: xx-large
+}
+
+.overall-asessment-container{
+    padding: 5px 10px;
+    margin: 2px 0;
+}
+.log-path-container{
+    padding: 5px 0;
+}
+
+.path-log-list{
+    list-style: circle;
+}
+
+.body-container{
+    max-width: 100vw;
+    padding: 0 10px;
+    padding-top: 10px ;
+    background-color: rgb(253, 232, 232);
+    color: black;
+    min-height: calc(100vh - 220px - 160px);
+}
+
+.body-titile-container{
+width: 100%;
+}
+.body-title{
+text-align: center;
+}
+
+.analysis-section-container{
+    width: 100%;
+    margin-top: 10px;
+}
+.analyze-label{
+    font-weight: 600;
+}
+
+.log-area-container{
+    width: 100%;
+}
+
+.analyze-info-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+textarea{
+    min-width: 100%;
+    color: black;
+    font-weight: 600;
+}
+
+/* Chat GPT stype */
+.dos-ip-container {
+    margin: 10px 0 20px 0;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    /* background-color: #f2f2f2; */
+    background-color: #e4b8b8;
+    color: #1a1616;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  td {
+    font-weight: bold;
+  }
+/* Footer style  */
+.footer-container{
+    height: 160px;
+    background-color: black;
+    color: rgb(253, 232, 232);
+    font-size: larger;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-weight: 600;
+    overflow-x: hidden;
+}
+.footer-content{
+    margin-left: 60px;
+}
+.tool-introduction{
+    width: 100%;
+}
+.code-by{
+    font-size: 10px;
+    margin-left: 5px;
+    font-weight: 500;
+}
