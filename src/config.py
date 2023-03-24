@@ -4,7 +4,9 @@ class TomcatLog:
     # Style: DIM, NORMAL, BRIGHT, RESET_ALL
     folderPath = r'F:\Work\Development\Freelance\ReadingLog\temp\opt\tomcat\logs'
     # folderPath = r'F:\Work\Development\Freelance\ReadingLog\temp\tomcatLog'
+    # folderPath = r'F:\Work\Development\Freelance\ReadingLog\temp\opt\tomcat\logs\localhost_access_log.2023-03-24'
     preFileNameList = ["localhost_access_log."]
+    # preFileNameList = ["localhost_access_log.2023-03-24."] 
     zipExtension = "gz"
     color = "RESET"
     style = "RESET_ALL"
@@ -75,7 +77,7 @@ class Banner:
     You can even use it to identify web attacks.
     
     Flog v1.1.0
-    Coded by Hoài Tân, Đức Dương, Gia Thuận, Nhất Lợi, Duy Luân  
+    Coded by Nhất Lợi, Gia Thuận, Hoài Tân, Đức Dương, Duy Luân  
  
     """
 
@@ -95,7 +97,8 @@ class analyzeModeConfig:
 
 
 class DosDetectionConfig:
-    minimumRequest = 9000
+    minimumRequest = 5
+    duration = 5  # minutes
 
 
 class MenuConfig:

@@ -55,7 +55,7 @@
         <div class="analysis-section-container">
             <div class="analyze-info-container">
                 <p class="analyze-label">Nmap Scanning</p>
-                <p class="analyze-label">Signature: {{data.nmapScan.signature}}</p>
+                <p class="analyze-label">Signature Log: <span>{{data.nmapScan.signature}}</span></p>
             </div>
             {% if data.nmapScan.logDataTomcat %}
             <div class="log-area-container">
@@ -75,7 +75,7 @@
         <div class="analysis-section-container">
             <div class="analyze-info-container">
                 <p class="analyze-label">Metasploit Attack</p>
-                <p class="analyze-label">Signature: {{data.metasploitAttack.signature}}</p>
+                <p class="analyze-label">Signature Log: <span>{{data.metasploitAttack.signature}}</span></p>
             </div>
             {% if data.metasploitAttack.logDataTomcat %}
             <div class="log-area-container">
@@ -93,13 +93,15 @@
         </div>
         {% endif %}
         {% if data.dosAttack %}
+        {% if data.dosAttack.tomcat or data.dosAttack.apache %}
         <div class="analysis-section-container">
             <div class="analyze-info-container">
                 <p class="analyze-label">DoS</p>
-                <!-- <p class="analyze-label">Signature: nmaplowercheck</p> -->
+                <p class="analyze-label">Signature Log: <span>The number of requests more than {{data.dosSignature.minimumRequest}} in {{data.dosSignature.duration}} minutes</span></p>
             </div>
-
+            {% if data.dosAttack.tomcat %}
             <div class="dos-ip-container">
+                <label for="">Tomcat</label>
                 <table>
                     <tr>
                         <th>Time</th>
@@ -107,18 +109,42 @@
                         <th>Number of requests</th>
                     </tr>
 
-                    {% for attack in data.dosAttack %}
+                    {% for data in data.dosAttack.tomcat %}
                     <tr>
                         <td>
-                            <b>From:</b> {{attack.time}}</br>
+                            <b>From:</b> {{data.timestamp}}</br>
                         </td>
-                        <td>{{attack.ip}}</td>
-                        <td>{{attack.numOfReq}}</td>
+                        <td>{{data.ip}}</td>
+                        <td>{{data.count}}</td>
                     </tr>
                     {% endfor %}
                 </table>
             </div>
+            {% endif %}
+            {% if data.dosAttack.apache %}
+            <div class="dos-ip-container">
+                <label for="">Apache</label>
+                <table>
+                    <tr>
+                        <th>Time</th>
+                        <th>IP</th>
+                        <th>Number of requests</th>
+                    </tr>
+
+                    {% for data in data.dosAttack.apache %}
+                    <tr>
+                        <td>
+                            <b>From:</b> {{data.timestamp}}</br>
+                        </td>
+                        <td>{{data.ip}}</td>
+                        <td>{{data.count}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            {% endif %}
         </div>
+        {% endif %}
         {% endif %}
     </div>
     <div class="footer-container">

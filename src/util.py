@@ -84,6 +84,13 @@ class Utils():
             Utils.printError("\n* Something went wrong with dateToTimestamp function!")
             return None
 
+    def timestampToObj(timestamp):
+        try:
+            return datetime.fromtimestamp(timestamp)
+        except:
+            Utils.printError("\n* Something went wrong with timestampToObj function!")
+            return None
+        
     def validate_time_input(input_time, timePattern):
         try:
             datetime.strptime(input_time, timePattern)

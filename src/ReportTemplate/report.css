@@ -91,10 +91,14 @@ text-align: center;
 }
 
 .analyze-info-container{
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    /* justify-content: space-between; */
 }
 
+.analyze-info-container > .analyze-label > span{
+    /* font-style: italic; */
+    text-decoration: underline;
+}
 textarea{
     min-width: 100%;
     color: black;

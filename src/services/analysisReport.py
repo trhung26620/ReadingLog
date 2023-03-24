@@ -1,10 +1,11 @@
 from src.util import Utils
-from src.config import TomcatLog, ApacheLog, SysLog, MenuConfig, ExtendConfig, analyzeModeConfig
+from src.config import TomcatLog, ApacheLog, SysLog, ExtendConfig, analyzeModeConfig, DosDetectionConfig
 import copy
 from src.services.log import Log
 from src.services.renderReport import Render
 from src.Models import Tomcat, Apache
-
+import datetime
+import copy
 
 class Analyzer:
     def __init__(self):
@@ -19,6 +20,8 @@ class Analyzer:
         self.metasploitReqIP = []
         self.numberReqIP = {}
         self.detectedAttackType = []
+        self.tomcatDosAttackResult = {}
+        self.apacheDosAttackResult = {}
 
     def getDateArrange(self):
         try:
@@ -96,6 +99,50 @@ class Analyzer:
         else:
             return result
 
+    def detectDosAttack(self, requestObjList):
+        REQUESTS_THRESHOLD = DosDetectionConfig.minimumRequest
+        INTERVAL_MINUTES = DosDetectionConfig.duration
+        ip_requests = {}
+        dosAttackResult = {}
+        sortedRequestObjList = sorted(requestObjList, key=lambda x: x.timestamp)
+        for request in sortedRequestObjList:
+            ip_address = request.ip_address
+            timestamp = Utils.timestampToObj(request.timestamp)
+            if ip_address not in ip_requests:
+                ip_requests[ip_address] = []
+            # first_requests[ip_address] = timestamp
+                dosAttackResult[ip_address] = {"count": 0, "timestamp": None}
+            # Add the request to the IP address's list of requests
+            ip_requests[ip_address].append(timestamp)
+
+            # Remove requests that are older than the 2-minute interval
+            if dosAttackResult[ip_address]["count"] < REQUESTS_THRESHOLD:
+                oldest_allowed = timestamp - \
+                    datetime.timedelta(minutes=INTERVAL_MINUTES)
+                ip_requests[ip_address] = [
+                    req for req in ip_requests[ip_address] if req >= oldest_allowed]
+            else:
+                dosAttackResult[ip_address]["count"] += 1
+            
+            if len(ip_requests[ip_address]) == REQUESTS_THRESHOLD and dosAttackResult[ip_address]["count"] == 0:
+                dosAttackResult[ip_address]["count"] = REQUESTS_THRESHOLD
+                dosAttackResult[ip_address]["timestamp"] = ip_requests[ip_address][0].strftime("%d/%b/%Y:%H:%M:%S")
+        return {k: v for k, v in dosAttackResult.items() if v['count'] != 0}  
+    
+    def getDoSDataForRender(self): 
+        result = {}
+        self.tomcatDosAttackResult = self.detectDosAttack(self.tomcatLogObjList)
+        self.apacheDosAttackResult = self.detectDosAttack(self.apacheLogObjList)
+        data = {
+            "tomcat": self.tomcatDosAttackResult,
+            "apache": self.apacheDosAttackResult
+        }
+        for key, value in data.items():
+            result[key] = []
+            for ip, stats in value.items():
+                result[key].append({"ip": ip, "count": stats["count"], "timestamp": stats["timestamp"]})
+        return result
+        
     def reportPrinter(self):
         self.getDateArrange()
         self.fetchLogObjLists()
@@ -107,7 +154,8 @@ class Analyzer:
         if self.metasploitReqIP:
             self.detectedAttackType.append('Metasploit attack')
         self.detectedAttackType.append('DoS')
+        dosData = self.getDoSDataForRender()
         render = Render(self.startTime, self.endTime, self.detectedAttackType, self.distinguishTomcatAndApache(
-            self.nmapLog), self.distinguishTomcatAndApache(self.metasploitLog))
+            self.nmapLog), self.distinguishTomcatAndApache(self.metasploitLog), dosData)
         render.outputReport()
         print('Exported File: ' + analyzeModeConfig.reportFolder)
