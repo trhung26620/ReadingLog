@@ -1,6 +1,5 @@
 from src.util import Utils
 from src.config import TomcatLog, ApacheLog, SysLog, ExtendConfig, analyzeModeConfig, DosDetectionConfig
-import copy
 from src.services.log import Log
 from src.services.renderReport import Render
 from src.Models import Tomcat, Apache
@@ -65,7 +64,6 @@ class Analyzer:
                 self.apacheLogObjList, analyzeModeConfig.metasploitDetectionSignature)
             self.metasploitReqIP = Log.getIpAddressListFromObjList(
                 self.metasploitLog)
-            # Log.displayLog(self.metasploitLog, analyzeModeConfig)
         except:
             Utils.printError(
                 "\n*Something went wrong with fetchMetasploitRequest function!")
@@ -153,8 +151,9 @@ class Analyzer:
             self.detectedAttackType.append('Nmap scanning')
         if self.metasploitReqIP:
             self.detectedAttackType.append('Metasploit attack')
-        self.detectedAttackType.append('DoS')
         dosData = self.getDoSDataForRender()
+        if dosData["tomcat"] or dosData["apache"]:
+            self.detectedAttackType.append('DoS')
         render = Render(self.startTime, self.endTime, self.detectedAttackType, self.distinguishTomcatAndApache(
             self.nmapLog), self.distinguishTomcatAndApache(self.metasploitLog), dosData)
         render.outputReport()

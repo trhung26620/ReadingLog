@@ -139,14 +139,3 @@ class MenuConfig:
   5. Export file
   6. Exit
 """
-#     dateFilterMenu = """
-# Please enter with format: dd-MM-yyyy-hh-mm-ss
-# 1. From Date
-# 2. To Date
-# """
-
-#     dateForAnalysisReportMenu = """
-# Please enter a time range for processing with format: dd-MM-yyyy-hh-mm-ss
-# 1. From Date
-# 2. To Date
-# """

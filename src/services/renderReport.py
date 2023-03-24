@@ -1,6 +1,5 @@
-from jinja2 import Environment, PackageLoader, FileSystemLoader, select_autoescape
-from src.config import TomcatLog, ApacheLog, MenuConfig, ExtendConfig, analyzeModeConfig, DosDetectionConfig
-# ['Nmap scanning', 'Metasploit attack', 'DoS']
+from jinja2 import Environment, FileSystemLoader, select_autoescape
+from src.config import TomcatLog, ApacheLog, analyzeModeConfig, DosDetectionConfig
 
 
 class Render:
@@ -31,7 +30,7 @@ class Render:
             'dosAttack': dosData,
             'dosSignature': {
                     'minimumRequest': str(DosDetectionConfig.minimumRequest),
-                    'duration': str(DosDetectionConfig.duration)  # minutes
+                    'duration': str(DosDetectionConfig.duration)
             },
         }
 

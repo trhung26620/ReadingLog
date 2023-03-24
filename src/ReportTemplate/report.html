@@ -40,16 +40,23 @@
 
         <div class="overall-asessment-container">
             <p><b>Detected attack types:</b>
+                {% if data.detectedAttackType%}
                 {{", ".join(data.detectedAttackType)}}
+                {% else %}
+                No attack detected
+                {% endif %}
             </p>
-            <!-- Nmap scanning, Metasploit attack, DoS -->
         </div>
     </div>
 
     <div class="body-container">
         <div class="body-titile-container">
             <hr>
-            <h1 class="body-title">PoC</h1>
+            {% if data.detectedAttackType%}
+                <h1 class="body-title">PoC</h1>
+            {% else %}
+                <h1 class="body-title">No attack detected</h1>
+            {% endif %}
         </div>
         {% if 'Nmap scanning' in data.detectedAttackType%}
         <div class="analysis-section-container">
