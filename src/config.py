@@ -2,11 +2,10 @@ class TomcatLog:
     logType = "Tomcat"
     # Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
     # Style: DIM, NORMAL, BRIGHT, RESET_ALL
+    
+    # config
     folderPath = r'F:\Work\Development\Freelance\ReadingLog\temp\opt\tomcat\logs'
-    # folderPath = r'F:\Work\Development\Freelance\ReadingLog\temp\tomcatLog'
-    # folderPath = r'F:\Work\Development\Freelance\ReadingLog\temp\opt\tomcat\logs\localhost_access_log.2023-03-24'
     preFileNameList = ["localhost_access_log."]
-    # preFileNameList = ["localhost_access_log.2023-03-24."] 
     zipExtension = "gz"
     color = "RESET"
     style = "RESET_ALL"
@@ -22,8 +21,9 @@ class ApacheLog:
     logType = "Apache"
     # Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
     # Style: DIM, NORMAL, BRIGHT, RESET_ALL
+    
+    # config
     folderPath = r'F:\Work\Development\Freelance\ReadingLog\temp\apacheLog'
-    # folderPath = r'/mnt/f/Work/Development/Freelance/ReadingLog/temp/apacheLog'
     preFileNameList = ["access.log"]
     zipExtension = "gz"
     color = "RESET"
@@ -40,6 +40,8 @@ class SysLog:
     logType = "System"
     # Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
     # Style: DIM, NORMAL, BRIGHT, RESET_ALL
+    
+    # config
     folderPath = r'F:\Work\Development\Freelance\ReadingLog\temp\sysLog'
     preFileNameList = ["syslog", "auth.log"]
     zipExtension = "gz"
@@ -93,11 +95,15 @@ class analyzeModeConfig:
     displayTitle = "\n* Display logs:"
     titleColor = "MAGENTA"
     titleStyle = "BRIGHT"
+    
+    # config
     reportFolder = r"F:\Work\Development\Freelance\ReadingLog\src\ReportTemplate\output.html"
 
 
 class DosDetectionConfig:
+    # config
     minimumRequest = 5
+    # config
     duration = 5  # minutes
 
 
