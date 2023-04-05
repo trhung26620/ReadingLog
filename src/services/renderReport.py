@@ -3,7 +3,7 @@ from src.config import TomcatLog, ApacheLog, analyzeModeConfig, DosDetectionConf
 
 
 class Render:
-    def __init__(self, fromDate, toDate, detectedAttackType, nmapScan, metasploitAttack, dosData):
+    def __init__(self, fromDate, toDate, detectedAttackType, nmapScan, metasploitAttack, dirbBruteforce, dosData, pathLog):
         self.env = Environment(loader=FileSystemLoader(
             "src\ReportTemplate"), autoescape=select_autoescape())
         self.template = self.env.get_template("report.html")
@@ -12,10 +12,7 @@ class Render:
                 'fromDate': fromDate,
                 'toDate': toDate,
             },
-            'pathLog': {
-                'tomcatPath': TomcatLog.folderPath,
-                'apachePath': ApacheLog.folderPath,
-            },
+            'pathLog': pathLog,
             'detectedAttackType': detectedAttackType,
             'nmapScan': {
                 'signature': analyzeModeConfig.nmapDetectionSignature,
@@ -26,6 +23,11 @@ class Render:
                 'signature': analyzeModeConfig.metasploitDetectionSignature,
                 'logDataTomcat': metasploitAttack['logDataTomcat'],
                 'logDataApache': metasploitAttack['logDataApache']
+            },
+            'dirbBruteforce': {
+                'signature': analyzeModeConfig.dirbDetectionSignature,
+                'logDataTomcat': dirbBruteforce['logDataTomcat'],
+                'logDataApache': dirbBruteforce['logDataApache']
             },
             'dosAttack': dosData,
             'dosSignature': {

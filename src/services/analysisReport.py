@@ -15,6 +15,8 @@ class Analyzer:
         self.systemLogObjList = []
         self.nmapLog = []
         self.metasploitLog = []
+        self.dirbLog = []
+        self.dirbIP = []
         self.nmapReqIP = []
         self.metasploitReqIP = []
         self.numberReqIP = {}
@@ -28,18 +30,27 @@ class Analyzer:
                                    f"+ Start time (E.g:{ExtendConfig.formatExampleForFilterTime}): ")
             self.endTime = input(Utils.getStyle("BRIGHT") + Utils.getColor("YELLOW") +
                                  f"+ End time (E.g:{ExtendConfig.formatExampleForFilterTime}): ")
+            if not self.endTime:
+               self.endTime = datetime.datetime.now().strftime(TomcatLog.dateInputFormat)
         except:
             Utils.printError(
                 "\n*Something went wrong with getDateArrange function!")
 
-    def fetchLogObjLists(self):
+    def fetchLogObjLists(self, logType='ALL'):
         try:
-            self.tomcatLogObjList = Log.filterLogsByTime(
-                Log.getAllLog(TomcatLog), self.startTime, self.endTime)
-            self.apacheLogObjList = Log.filterLogsByTime(
-                Log.getAllLog(ApacheLog), self.startTime, self.endTime)
-            self.systemLogObjList = Log.filterLogsByTime(
-                Log.getAllLog(SysLog), self.startTime, self.endTime)
+            if logType=='ALL':
+                self.tomcatLogObjList = Log.filterLogsByTime(
+                    Log.getAllLog(TomcatLog), self.startTime, self.endTime)
+                self.apacheLogObjList = Log.filterLogsByTime(
+                    Log.getAllLog(ApacheLog), self.startTime, self.endTime)
+            elif logType=='Tomcat':
+                self.tomcatLogObjList = Log.filterLogsByTime(
+                    Log.getAllLog(TomcatLog), self.startTime, self.endTime)
+            elif logType=='Apache':
+                self.apacheLogObjList = Log.filterLogsByTime(
+                    Log.getAllLog(ApacheLog), self.startTime, self.endTime)      
+            # self.systemLogObjList = Log.filterLogsByTime(
+            #     Log.getAllLog(SysLog), self.startTime, self.endTime)
             # print(Log.getIpAddressListFromObjList(self.tomcatLogObjList))
         except:
             Utils.printError(
@@ -68,6 +79,18 @@ class Analyzer:
             Utils.printError(
                 "\n*Something went wrong with fetchMetasploitRequest function!")
 
+    def fetchDirbRequest(self):
+        try:
+            self.dirbLog += Log.filterLogsByStatusCode(
+                self.tomcatLogObjList, analyzeModeConfig.dirbDetectionSignature)
+            self.dirbLog += Log.filterLogsByStatusCode(
+                self.apacheLogObjList, analyzeModeConfig.dirbDetectionSignature)
+            self.dirbIP = Log.getIpAddressListFromObjList(
+                self.dirbLog)
+        except:
+            Utils.printError(
+                "\n*Something went wrong with fetchDirbRequest function!")
+            
     def fetchNumberRequestById(self):
         try:
             self.numberReqIP = Log.countRequestById(
@@ -146,15 +169,70 @@ class Analyzer:
         self.fetchLogObjLists()
         self.fetchNmapRequest()
         self.fetchMetasploitRequest()
+        self.fetchDirbRequest()
         self.fetchNumberRequestById()
         if self.nmapReqIP:
             self.detectedAttackType.append('Nmap scanning')
         if self.metasploitReqIP:
             self.detectedAttackType.append('Metasploit attack')
+        if self.dirbIP:
+            self.detectedAttackType.append('Dirb brute force')
         dosData = self.getDoSDataForRender()
         if dosData["tomcat"] or dosData["apache"]:
             self.detectedAttackType.append('DoS')
+        pathLog = {
+            'tomcatPath': TomcatLog.folderPath,
+            'apachePath': ApacheLog.folderPath,
+        }
         render = Render(self.startTime, self.endTime, self.detectedAttackType, self.distinguishTomcatAndApache(
-            self.nmapLog), self.distinguishTomcatAndApache(self.metasploitLog), dosData)
+            self.nmapLog), self.distinguishTomcatAndApache(self.metasploitLog), self.distinguishTomcatAndApache(self.dirbLog),dosData, pathLog)
+        render.outputReport()
+        print('Exported File: ' + analyzeModeConfig.reportFolder)
+        
+    def tomcatReportPrinter(self):
+        self.getDateArrange()
+        self.fetchLogObjLists(TomcatLog.logType)
+        self.fetchNmapRequest()
+        self.fetchMetasploitRequest()
+        self.fetchDirbRequest()
+        self.fetchNumberRequestById()
+        if self.nmapReqIP:
+            self.detectedAttackType.append('Nmap scanning')
+        if self.metasploitReqIP:
+            self.detectedAttackType.append('Metasploit attack')
+        if self.dirbIP:
+            self.detectedAttackType.append('Dirb brute force')
+        dosData = self.getDoSDataForRender()
+        if dosData["tomcat"] or dosData["apache"]:
+            self.detectedAttackType.append('DoS')
+        pathLog = {
+            'tomcatPath': TomcatLog.folderPath,
+        }
+        render = Render(self.startTime, self.endTime, self.detectedAttackType, self.distinguishTomcatAndApache(
+            self.nmapLog), self.distinguishTomcatAndApache(self.metasploitLog), self.distinguishTomcatAndApache(self.dirbLog),dosData, pathLog)
+        render.outputReport()
+        print('Exported File: ' + analyzeModeConfig.reportFolder)
+        
+    def apacheReportPrinter(self):
+        self.getDateArrange()
+        self.fetchLogObjLists(ApacheLog.logType)
+        self.fetchNmapRequest()
+        self.fetchMetasploitRequest()
+        self.fetchDirbRequest()
+        self.fetchNumberRequestById()
+        if self.nmapReqIP:
+            self.detectedAttackType.append('Nmap scanning')
+        if self.metasploitReqIP:
+            self.detectedAttackType.append('Metasploit attack')
+        if self.dirbIP:
+            self.detectedAttackType.append('Dirb brute force')
+        dosData = self.getDoSDataForRender()
+        if dosData["tomcat"] or dosData["apache"]:
+            self.detectedAttackType.append('DoS')
+        pathLog = {
+            'apachePath': ApacheLog.folderPath,
+        }
+        render = Render(self.startTime, self.endTime, self.detectedAttackType, self.distinguishTomcatAndApache(
+            self.nmapLog), self.distinguishTomcatAndApache(self.metasploitLog), self.distinguishTomcatAndApache(self.dirbLog),dosData, pathLog)
         render.outputReport()
         print('Exported File: ' + analyzeModeConfig.reportFolder)

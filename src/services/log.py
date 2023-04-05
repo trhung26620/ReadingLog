@@ -81,6 +81,17 @@ class Log:
         except:
             Utils.printError("\n*Something went wrong with filterLogsByString function!")
             return filteredObjArr
+    
+    def filterLogsByStatusCode(logObjArr, statusCode):
+        filteredObjArr = []
+        try:
+            for logObj in logObjArr:
+                if str(statusCode) == logObj.status_code:
+                    filteredObjArr.append(logObj)
+            return filteredObjArr
+        except:
+            Utils.printError("\n*Something went wrong with filterLogsByString function!")
+            return filteredObjArr
 
     def filterLogsByIp(logObjArr, ip):
         filteredObjArr = []

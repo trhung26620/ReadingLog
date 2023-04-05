@@ -4,7 +4,7 @@ from src.services.log import Log
 from src.config import TomcatLog, ApacheLog, SysLog, MenuConfig, ExtendConfig, analyzeModeConfig
 import copy
 from src.services.analysisReport import Analyzer
-
+import datetime
 
 class Controller:
     def __init__(self):
@@ -19,9 +19,13 @@ class Controller:
         self.option = Menu.proccessMenu(
             MenuConfig.mainMenu, MenuConfig.keyMainOptions)
         if self.option == "1":
-            self.logConfig = TomcatLog
+            analyzer = Analyzer()
+            analyzer.tomcatReportPrinter()
+            # self.logConfig = TomcatLog
         elif self.option == "2":
-            self.logConfig = ApacheLog
+            analyzer = Analyzer()
+            analyzer.apacheReportPrinter()
+            # self.logConfig = ApacheLog
         elif self.option == "3":
             self.logConfig = SysLog
         elif self.option == "4":
@@ -29,7 +33,7 @@ class Controller:
             analyzer.reportPrinter()
         else:
             exit()
-        if self.option != "4":
+        if self.option == "3":
             self.logObjList = Log.getAllLog(self.logConfig)
             self.logObjForDisplay = copy.deepcopy(self.logObjList)
             if self.logConfig.logType == "System":
@@ -45,6 +49,8 @@ class Controller:
                               f"+ Start time (E.g:{ExtendConfig.formatExampleForFilterTime}): ")
             endTime = input(Utils.getStyle("BRIGHT") + Utils.getColor("YELLOW") +
                             f"+ End time (E.g:{ExtendConfig.formatExampleForFilterTime}): ")
+            if not endTime:
+                endTime = datetime.datetime.now().strftime(TomcatLog.dateInputFormat)
             self.logObjForDisplay = copy.deepcopy(
                 Log.filterLogsByTime(self.logObjForDisplay, startTime, endTime))
             self.processSubMenu()
@@ -91,6 +97,8 @@ class Controller:
                               f"+ Start time (E.g:{ExtendConfig.formatExampleForFilterTime}): ")
             endTime = input(Utils.getStyle("BRIGHT") + Utils.getColor("YELLOW") +
                             f"+ End time (E.g:{ExtendConfig.formatExampleForFilterTime}): ")
+            if not endTime:
+                endTime = datetime.datetime.now().strftime(TomcatLog.dateInputFormat)
             self.logObjForDisplay = copy.deepcopy(
                 Log.filterLogsByTime(self.logObjForDisplay, startTime, endTime))
             self.processSubMenuForSysLog()

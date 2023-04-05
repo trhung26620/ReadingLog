@@ -25,14 +25,18 @@
             <div class="log-path-container">
                 <p class="log-path-title"><b>Log Path:</b></p>
                 <ul class="path-log-list">
-                    <li>
-                        <p><span><b>&nbsp;- Tomcat:</b></span>
-                            {{data.pathLog.tomcatPath}}</p>
-                    </li>
-                    <li>
-                        <p><span><b>&nbsp;- Apache:</b></span> {{data.pathLog.apachePath}}
-                        </p>
-                    </li>
+                    {% if data.pathLog.tomcatPath%}
+                        <li>
+                            <p><span><b>&nbsp;- Tomcat:</b></span>
+                                {{data.pathLog.tomcatPath}}</p>
+                        </li>
+                    {% endif %}
+                        {% if data.pathLog.apachePath%}
+                        <li>
+                            <p><span><b>&nbsp;- Apache:</b></span> {{data.pathLog.apachePath}}
+                            </p>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
             <hr>
@@ -95,6 +99,27 @@
             <div class="log-area-container">
                 <label for="">Apache</label>
                 <textarea name="" id="" cols="30" rows="10" readonly>{{data.metasploitAttack.logDataApache}}</textarea>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% if 'Dirb brute force' in data.detectedAttackType%}
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">Dirb Brute Force</p>
+                <p class="analyze-label">Signature Log: <span>{{data.dirbBruteforce.signature}}</span></p>
+            </div>
+            {% if data.dirbBruteforce.logDataTomcat %}
+            <div class="log-area-container">
+                <label for="">Tomcat</label>
+                <textarea name="" id="" cols="30" rows="10"
+                    readonly>{{ data.dirbBruteforce.logDataTomcat }}</textarea>
+            </div>
+            {% endif %}
+            {% if data.dirbBruteforce.logDataApache %}
+            <div class="log-area-container">
+                <label for="">Apache</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>{{data.dirbBruteforce.logDataApache}}</textarea>
             </div>
             {% endif %}
         </div>

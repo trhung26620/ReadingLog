@@ -92,6 +92,7 @@ class ExtendConfig:
 class analyzeModeConfig:
     nmapDetectionSignature = "nmaplowercheck"
     metasploitDetectionSignature = "apache.catalina.filters"
+    dirbDetectionSignature = "200"
     displayTitle = "\n* Display logs:"
     titleColor = "MAGENTA"
     titleStyle = "BRIGHT"
