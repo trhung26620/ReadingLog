@@ -109,7 +109,7 @@ class DosDetectionConfig:
 
 
 class MenuConfig:
-    keyMainOptions = ['1', '2', '3', '4', '5']
+    keyMainOptions = ['1', '2', '3', '4']
     keySubOptions = ['1', '2', '3', '4', '5', '6', '7']
     keySubOptionsForSysLog = ['1', '2', '3', '4', '5', '6']
     optionRequestColor = "BLUE"
@@ -121,10 +121,10 @@ class MenuConfig:
 - Enter the type of log you want to analyze:
   1. Analyze Tomcat Log 
   2. Analyze Apache Log
-  3. Analyze System Log
-  4. Full Analysis
-  5. Exit    
+  3. Full Analysis
+  4. Exit    
 """
+#   3. Analyze System Log
 
     subMenu = """
 + Enter an action:

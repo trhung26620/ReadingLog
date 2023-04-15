@@ -26,20 +26,20 @@ class Controller:
             analyzer = Analyzer()
             analyzer.apacheReportPrinter()
             # self.logConfig = ApacheLog
+        # elif self.option == "3":
+        #     self.logConfig = SysLog
         elif self.option == "3":
-            self.logConfig = SysLog
-        elif self.option == "4":
             analyzer = Analyzer()
             analyzer.reportPrinter()
         else:
             exit()
-        if self.option == "3":
-            self.logObjList = Log.getAllLog(self.logConfig)
-            self.logObjForDisplay = copy.deepcopy(self.logObjList)
-            if self.logConfig.logType == "System":
-                self.processSubMenuForSysLog()
-            else:
-                self.processSubMenu()
+        # if self.option == "3":
+        #     self.logObjList = Log.getAllLog(self.logConfig)
+        #     self.logObjForDisplay = copy.deepcopy(self.logObjList)
+        #     if self.logConfig.logType == "System":
+        #         self.processSubMenuForSysLog()
+        #     else:
+        #         self.processSubMenu()
 
     def processSubMenu(self):
         option = Menu.proccessMenu(
