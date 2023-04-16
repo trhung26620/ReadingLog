@@ -110,7 +110,7 @@ class DosDetectionConfig:
 
 class MenuConfig:
     keyMainOptions = ['1', '2', '3', '4']
-    keySubOptions = ['1', '2', '3', '4', '5', '6', '7']
+    keySubOptions = ['1', '2']
     keySubOptionsForSysLog = ['1', '2', '3', '4', '5', '6']
     optionRequestColor = "BLUE"
     optionRequestStyle = "NORMAL"
@@ -124,25 +124,31 @@ class MenuConfig:
   3. Full Analysis
   4. Exit    
 """
-#   3. Analyze System Log
 
     subMenu = """
 + Enter an action:
-  1. Filter by date
-  2. Filter by IP
-  3. Filter by string
-  4. Reset filter 
-  5. Display
-  6. Export file
-  7. Exit
+  1. Back
+  2. Eixt
 """
+#   3. Analyze System Log
 
-    subMenuForSysLog = """
-+ Enter an action:
-  1. Filter by date
-  2. Filter by string
-  3. Reset filter 
-  4. Display
-  5. Export file
-  6. Exit
-"""
+#     subMenu = """
+# + Enter an action:
+#   1. Filter by date
+#   2. Filter by IP
+#   3. Filter by string
+#   4. Reset filter 
+#   5. Display
+#   6. Export file
+#   7. Exit
+# """
+
+#     subMenuForSysLog = """
+# + Enter an action:
+#   1. Filter by date
+#   2. Filter by string
+#   3. Reset filter 
+#   4. Display
+#   5. Export file
+#   6. Exit
+# """

@@ -21,16 +21,19 @@ class Controller:
         if self.option == "1":
             analyzer = Analyzer()
             analyzer.tomcatReportPrinter()
+            self.processSubMenu()
             # self.logConfig = TomcatLog
         elif self.option == "2":
             analyzer = Analyzer()
             analyzer.apacheReportPrinter()
+            self.processSubMenu()
             # self.logConfig = ApacheLog
         # elif self.option == "3":
         #     self.logConfig = SysLog
         elif self.option == "3":
             analyzer = Analyzer()
             analyzer.reportPrinter()
+            self.processSubMenu()
         else:
             exit()
         # if self.option == "3":
@@ -44,50 +47,58 @@ class Controller:
     def processSubMenu(self):
         option = Menu.proccessMenu(
             MenuConfig.subMenu, MenuConfig.keySubOptions)
-        if option == "1":
-            startTime = input(Utils.getStyle("BRIGHT") + Utils.getColor("YELLOW") +
-                              f"+ Start time (E.g:{ExtendConfig.formatExampleForFilterTime}): ")
-            endTime = input(Utils.getStyle("BRIGHT") + Utils.getColor("YELLOW") +
-                            f"+ End time (E.g:{ExtendConfig.formatExampleForFilterTime}): ")
-            if not endTime:
-                endTime = datetime.datetime.now().strftime(TomcatLog.dateInputFormat)
-            self.logObjForDisplay = copy.deepcopy(
-                Log.filterLogsByTime(self.logObjForDisplay, startTime, endTime))
-            self.processSubMenu()
-        elif option == "2":
-            ipForFilter = input(Utils.getStyle("BRIGHT") +
-                                Utils.getColor("YELLOW") + "+ IP: ")
-            self.logObjForDisplay = copy.deepcopy(
-                Log.filterLogsByIp(self.logObjForDisplay, ipForFilter))
-            self.processSubMenu()
-        elif option == "3":
-            strForFilter = input(Utils.getStyle(
-                "BRIGHT") + Utils.getColor("YELLOW") + "+ Filter: ")
-            self.logObjForDisplay = copy.deepcopy(
-                Log.filterLogsByString(self.logObjForDisplay, strForFilter))
-            self.processSubMenu()
-        elif option == "4":
-            self.logObjForDisplay = copy.deepcopy(self.logObjList)
-            self.processSubMenu()
-        elif option == "5":
-            Log.displayLog(self.logObjForDisplay, self.logConfig)
-            self.processSubMenu()
-        elif option == "6":
-            saveFolder = input(Utils.getStyle("BRIGHT") +
-                               Utils.getColor("YELLOW") + "+ Folder path: ")
-            if Utils.checkExistFolder(saveFolder):
-                filePath = Log.exportFile(
-                    self.logObjForDisplay, saveFolder, self.logConfig)
-                if filePath:
-                    Utils.printWarning("\n* File exported at: " + filePath)
-                else:
-                    Utils.printError("\n* Export file error!")
-                self.processSubMenu()
-            else:
-                Utils.printError("\n* Invalid folder path")
-                self.processSubMenu()
+        if option == '1':
+            self.process()
         else:
             exit()
+        
+    # def processSubMenu(self):
+    #     option = Menu.proccessMenu(
+    #         MenuConfig.subMenu, MenuConfig.keySubOptions)
+    #     if option == "1":
+    #         startTime = input(Utils.getStyle("BRIGHT") + Utils.getColor("YELLOW") +
+    #                           f"+ Start time (E.g:{ExtendConfig.formatExampleForFilterTime}): ")
+    #         endTime = input(Utils.getStyle("BRIGHT") + Utils.getColor("YELLOW") +
+    #                         f"+ End time (E.g:{ExtendConfig.formatExampleForFilterTime}): ")
+    #         if not endTime:
+    #             endTime = datetime.datetime.now().strftime(TomcatLog.dateInputFormat)
+    #         self.logObjForDisplay = copy.deepcopy(
+    #             Log.filterLogsByTime(self.logObjForDisplay, startTime, endTime))
+    #         self.processSubMenu()
+    #     elif option == "2":
+    #         ipForFilter = input(Utils.getStyle("BRIGHT") +
+    #                             Utils.getColor("YELLOW") + "+ IP: ")
+    #         self.logObjForDisplay = copy.deepcopy(
+    #             Log.filterLogsByIp(self.logObjForDisplay, ipForFilter))
+    #         self.processSubMenu()
+    #     elif option == "3":
+    #         strForFilter = input(Utils.getStyle(
+    #             "BRIGHT") + Utils.getColor("YELLOW") + "+ Filter: ")
+    #         self.logObjForDisplay = copy.deepcopy(
+    #             Log.filterLogsByString(self.logObjForDisplay, strForFilter))
+    #         self.processSubMenu()
+    #     elif option == "4":
+    #         self.logObjForDisplay = copy.deepcopy(self.logObjList)
+    #         self.processSubMenu()
+    #     elif option == "5":
+    #         Log.displayLog(self.logObjForDisplay, self.logConfig)
+    #         self.processSubMenu()
+    #     elif option == "6":
+    #         saveFolder = input(Utils.getStyle("BRIGHT") +
+    #                            Utils.getColor("YELLOW") + "+ Folder path: ")
+    #         if Utils.checkExistFolder(saveFolder):
+    #             filePath = Log.exportFile(
+    #                 self.logObjForDisplay, saveFolder, self.logConfig)
+    #             if filePath:
+    #                 Utils.printWarning("\n* File exported at: " + filePath)
+    #             else:
+    #                 Utils.printError("\n* Export file error!")
+    #             self.processSubMenu()
+    #         else:
+    #             Utils.printError("\n* Invalid folder path")
+    #             self.processSubMenu()
+    #     else:
+    #         exit()
 
     def processSubMenuForSysLog(self):
         option = Menu.proccessMenu(
