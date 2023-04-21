@@ -40,6 +40,25 @@
                 </ul>
             </div>
             <hr>
+            <div class="victim-info-container">
+                <p class="victim-machine-title"><b>Victim Machine:</b></p>
+                <div class="victim-machine-info">
+                    <p><span><b>- IP Address: </b></span>192.168.200.10</p>
+                    <p><span><b>- Apache Tomcat version: </b></span>9.0.53</p>
+                </div>
+                <!-- <ul class="path-log-list">
+                  <li>
+                        <p><span><b>&nbsp;- IP Address: </b></span> 192.168.200.10
+                        </p>
+                    </li>
+                    <li>
+                        <p><span><b>&nbsp;- Apache Tomcat version: </b></span> 9.0.53
+                        </p>
+                    </li>
+            
+                </ul> -->
+                <hr>
+            </div>
         </div>
 
         <div class="overall-asessment-container">
@@ -55,7 +74,7 @@
 
     <div class="body-container">
         <div class="body-titile-container">
-            <hr>
+            <!-- <hr> -->
             {% if data.detectedAttackType%}
                 <h1 class="body-title">PoC</h1>
             {% else %}
@@ -124,6 +143,60 @@
             {% endif %}
         </div>
         {% endif %}
+
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">SQL injection</p>
+                <p class="analyze-label">Signature Log: <span>" 'or 1=1 -- ", " UNION SELECT " and " SELECT * FROM
+                        ".</span></p>
+            </div>
+
+            {% if data.pathLog.tomcatPath%}
+            <div class="log-area-container">
+                <label for="">Tomcat</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>
+                    No detect attack
+                </textarea>
+            </div>
+            {% endif %}
+
+            {% if data.pathLog.apachePath%}
+            <div class="log-area-container">
+                <label for="">Apache</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>
+                    No detect attack
+                </textarea>
+            </div>
+            {% endif %}
+
+        </div>
+
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">XSS</p>
+                <p class="analyze-label">Signature Log: <span>script + url , script + file</span></p>
+            </div>
+            
+            {% if data.pathLog.tomcatPath%}
+            <div class="log-area-container">
+                <label for="">Tomcat</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>
+                    No detect attack
+                </textarea>
+            </div>
+            {% endif %}
+
+            {% if data.pathLog.apachePath%}
+            <div class="log-area-container">
+                <label for="">Apache</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>
+                    No detect attack
+                </textarea>
+            </div>
+            {% endif %}
+
+        </div>
+
         {% if data.dosAttack %}
         {% if data.dosAttack.tomcat or data.dosAttack.apache %}
         <div class="analysis-section-container">

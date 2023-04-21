@@ -17,8 +17,8 @@
         <div class="info-container">
             <div class="time-container">
                 <p class="time-text">
-                    <b>From:</b> 18/Feb/2022:22:41:22</br>
-                    <b>To:</b> 18/Feb/2023:22:41:22
+                    <b>From:</b> 18/Feb/2023:22:41:22</br>
+                    <b>To:</b> 21/Apr/2023:22:46:22
                 </p>
             </div>
             <hr>
@@ -26,21 +26,40 @@
                 <p class="log-path-title"><b>Log Path:</b></p>
                 <ul class="path-log-list">
                     
+                        
                         <li>
-                            <p><span><b>&nbsp;- Tomcat:</b></span>
-                                F:\Work\Development\Freelance\ReadingLog\temp\opt\tomcat\logs</p>
+                            <p><span><b>&nbsp;- Apache:</b></span> F:\Work\Development\Freelance\ReadingLog\temp\apacheLog
+                            </p>
                         </li>
                     
-                        
                 </ul>
             </div>
             <hr>
+            <div class="victim-info-container">
+                <p class="victim-machine-title"><b>Victim Machine:</b></p>
+                <div class="victim-machine-info">
+                    <p><span><b>- IP Address: </b></span>192.168.200.10</p>
+                    <p><span><b>- Apache Tomcat version: </b></span>9.0.53</p>
+                </div>
+                <!-- <ul class="path-log-list">
+                  <li>
+                        <p><span><b>&nbsp;- IP Address: </b></span> 192.168.200.10
+                        </p>
+                    </li>
+                    <li>
+                        <p><span><b>&nbsp;- Apache Tomcat version: </b></span> 9.0.53
+                        </p>
+                    </li>
+            
+                </ul> -->
+                <hr>
+            </div>
         </div>
 
         <div class="overall-asessment-container">
             <p><b>Detected attack types:</b>
                 
-                Nmap scanning, Metasploit attack, Dirb brute force, DoS
+                Dirb brute force
                 
             </p>
         </div>
@@ -48,70 +67,12 @@
 
     <div class="body-container">
         <div class="body-titile-container">
-            <hr>
+            <!-- <hr> -->
             
                 <h1 class="body-title">PoC</h1>
             
         </div>
         
-        <div class="analysis-section-container">
-            <div class="analyze-info-container">
-                <p class="analyze-label">Nmap Scanning</p>
-                <p class="analyze-label">Signature Log: <span>nmaplowercheck</span></p>
-            </div>
-            
-            <div class="log-area-container">
-                <label for="">Tomcat</label>
-                <textarea name="" id="" cols="30" rows="10" readonly>192.168.160.141 - - [16/Feb/2023:23:40:51 +0700] &#34;GET /nmaplowercheck1676565651 HTTP/1.1&#34; 404 775
-192.168.1.61 - - [16/Feb/2023:12:12:30 +0700] &#34;GET /nmaplowercheck1676524350 HTTP/1.1&#34; 404 775
-192.168.101.93 - - [03/Feb/2023:12:51:41 +0700] &#34;GET /nmaplowercheck1675403501 HTTP/1.1&#34; 404 775
-192.168.101.93 - - [11/Jan/2023:02:41:39 +0700] &#34;GET /nmaplowercheck1673379699 HTTP/1.1&#34; 404 775
-192.168.101.11 - - [11/Jan/2023:01:27:12 +0700] &#34;GET /nmaplowercheck1673375232 HTTP/1.1&#34; 404 775
-192.168.101.93 - - [27/Dec/2022:01:21:08 -0700] &#34;GET /nmaplowercheck1672129268 HTTP/1.1&#34; 404 775
-192.168.160.134 - - [23/Dec/2022:05:50:52 -0700] &#34;GET /nmaplowercheck1671799853 HTTP/1.1&#34; 404 775
-192.168.160.134 - - [22/Dec/2022:02:49:26 -0700] &#34;GET /nmaplowercheck1671702568 HTTP/1.1&#34; 404 775</textarea>
-            </div>
-            
-            
-        </div>
-        
-        
-        <div class="analysis-section-container">
-            <div class="analyze-info-container">
-                <p class="analyze-label">Metasploit Attack</p>
-                <p class="analyze-label">Signature Log: <span>apache.catalina.filters</span></p>
-            </div>
-            
-            <div class="log-area-container">
-                <label for="">Tomcat</label>
-                <textarea name="" id="" cols="30" rows="10"
-                    readonly>192.168.160.141 - admin [16/Feb/2023:23:46:16 +0700] &#34;POST /manager/html/undeploy?path=/hXx22zOuH8NBoSiTUM4xOdmuvjGFwm&amp;org.apache.catalina.filters.CSRF_NONCE=09F4571DDD500CCD430C89AE77677D96 HTTP/1.1&#34; 200 18276
-192.168.160.141 - - [16/Feb/2023:23:46:15 +0700] &#34;POST /manager/html/upload?path=hXx22zOuH8NBoSiTUM4xOdmuvjGFwm&amp;org.apache.catalina.filters.CSRF_NONCE=7F37B67BA60D522F1C3E2C87F71C5DED HTTP/1.1&#34; 401 2499
-192.168.160.141 - admin [16/Feb/2023:23:46:15 +0700] &#34;POST /manager/html/upload?path=hXx22zOuH8NBoSiTUM4xOdmuvjGFwm&amp;org.apache.catalina.filters.CSRF_NONCE=7F37B67BA60D522F1C3E2C87F71C5DED HTTP/1.1&#34; 200 20176
-192.168.160.141 - - [16/Feb/2023:23:46:15 +0700] &#34;POST /manager/html/undeploy?path=/hXx22zOuH8NBoSiTUM4xOdmuvjGFwm&amp;org.apache.catalina.filters.CSRF_NONCE=09F4571DDD500CCD430C89AE77677D96 HTTP/1.1&#34; 401 2499
-192.168.1.61 - admin [16/Feb/2023:12:25:22 +0700] &#34;POST /manager/html/upload?path=t25TkR6D9XUK3PaRveuP&amp;org.apache.catalina.filters.CSRF_NONCE=667FC6F00B302BC2E688DB966A6E7A0E HTTP/1.1&#34; 200 20106
-192.168.1.61 - - [16/Feb/2023:12:25:22 +0700] &#34;POST /manager/html/undeploy?path=/t25TkR6D9XUK3PaRveuP&amp;org.apache.catalina.filters.CSRF_NONCE=1AD04EE693741F901CF99A7ED2B484E4 HTTP/1.1&#34; 401 2499
-192.168.1.61 - admin [16/Feb/2023:12:25:22 +0700] &#34;POST /manager/html/undeploy?path=/t25TkR6D9XUK3PaRveuP&amp;org.apache.catalina.filters.CSRF_NONCE=1AD04EE693741F901CF99A7ED2B484E4 HTTP/1.1&#34; 200 18266
-192.168.1.61 - - [16/Feb/2023:12:25:21 +0700] &#34;POST /manager/html/upload?path=t25TkR6D9XUK3PaRveuP&amp;org.apache.catalina.filters.CSRF_NONCE=667FC6F00B302BC2E688DB966A6E7A0E HTTP/1.1&#34; 401 2499
-192.168.101.11 - admin [06/Jan/2023:03:01:14 -0700] &#34;POST /manager/html/upload?org.apache.catalina.filters.CSRF_NONCE=4A7C863F635BB6E18C7465FD88AA9E5F HTTP/1.1&#34; 200 18192
-192.168.101.11 - admin [06/Jan/2023:02:58:51 -0700] &#34;POST /manager/html/undeploy?path=/Demo&amp;org.apache.catalina.filters.CSRF_NONCE=5F22FC3C34D56734BFC55DB87411B142 HTTP/1.1&#34; 200 16447
-192.168.101.11 - admin [06/Jan/2023:02:57:54 -0700] &#34;POST /manager/html/upload?org.apache.catalina.filters.CSRF_NONCE=201D8F48B89C653E62A921A1FE19311C HTTP/1.1&#34; 200 18192
-192.168.101.11 - admin [06/Jan/2023:02:57:37 -0700] &#34;POST /manager/html/undeploy?path=/Demo&amp;org.apache.catalina.filters.CSRF_NONCE=411976DF9F9DC0F1E226DF0404759C1C HTTP/1.1&#34; 200 16447
-192.168.101.11 - admin [06/Jan/2023:02:56:16 -0700] &#34;POST /manager/html/upload?org.apache.catalina.filters.CSRF_NONCE=E238331BF9B334870E8578E4C9FAB94B HTTP/1.1&#34; 200 18192
-192.168.101.11 - admin [06/Jan/2023:00:35:59 -0700] &#34;POST /manager/html/deploy?org.apache.catalina.filters.CSRF_NONCE=9AAA9616EB05A0F812A091FE79AACA79 HTTP/1.1&#34; 200 16440
-192.168.101.11 - admin [06/Jan/2023:00:35:57 -0700] &#34;POST /manager/html/deploy;jsessionid=AFA5391936FB5A4128E029F87BF3795D?org.apache.catalina.filters.CSRF_NONCE=EBEC0A9FDAD75F704B5A22DE2758D4C5 HTTP/1.1&#34; 200 16440
-192.168.101.93 - admin [27/Dec/2022:01:39:22 -0700] &#34;POST /manager/html/upload?path=5U5D6v&amp;org.apache.catalina.filters.CSRF_NONCE=CBD482B7AFF08CCFF152F477751E7E74 HTTP/1.1&#34; 200 18206
-192.168.101.93 - - [27/Dec/2022:01:39:22 -0700] &#34;POST /manager/html/undeploy?path=/5U5D6v&amp;org.apache.catalina.filters.CSRF_NONCE=3A0632C7912C8580337F2F05C4DE741A HTTP/1.1&#34; 401 2499
-192.168.101.93 - admin [27/Dec/2022:01:39:22 -0700] &#34;POST /manager/html/undeploy?path=/5U5D6v&amp;org.apache.catalina.filters.CSRF_NONCE=3A0632C7912C8580337F2F05C4DE741A HTTP/1.1&#34; 200 16449
-192.168.101.93 - - [27/Dec/2022:01:39:21 -0700] &#34;POST /manager/html/upload?path=5U5D6v&amp;org.apache.catalina.filters.CSRF_NONCE=CBD482B7AFF08CCFF152F477751E7E74 HTTP/1.1&#34; 401 2499
-192.168.160.134 - - [22/Dec/2022:04:08:07 -0700] &#34;POST /manager/html/upload?path=qbFlm&amp;org.apache.catalina.filters.CSRF_NONCE=92CD966A94B4491F7D3E84BC21DD9C30 HTTP/1.1&#34; 401 2499
-192.168.160.134 - admin [22/Dec/2022:04:08:07 -0700] &#34;POST /manager/html/upload?path=qbFlm&amp;org.apache.catalina.filters.CSRF_NONCE=92CD966A94B4491F7D3E84BC21DD9C30 HTTP/1.1&#34; 200 18199
-192.168.160.134 - - [22/Dec/2022:04:08:07 -0700] &#34;POST /manager/html/undeploy?path=/qbFlm&amp;org.apache.catalina.filters.CSRF_NONCE=494BB934D7254DA9E61E3F9236B677B5 HTTP/1.1&#34; 401 2499
-192.168.160.134 - admin [22/Dec/2022:04:08:07 -0700] &#34;POST /manager/html/undeploy?path=/qbFlm&amp;org.apache.catalina.filters.CSRF_NONCE=494BB934D7254DA9E61E3F9236B677B5 HTTP/1.1&#34; 200 16448</textarea>
-            </div>
-            
-            
-        </div>
         
         
         <div class="analysis-section-container">
@@ -120,609 +81,56 @@
                 <p class="analyze-label">Signature Log: <span>200</span></p>
             </div>
             
-            <div class="log-area-container">
-                <label for="">Tomcat</label>
-                <textarea name="" id="" cols="30" rows="10"
-                    readonly>192.168.160.141 - admin [16/Feb/2023:23:46:16 +0700] &#34;POST /manager/html/undeploy?path=/hXx22zOuH8NBoSiTUM4xOdmuvjGFwm&amp;org.apache.catalina.filters.CSRF_NONCE=09F4571DDD500CCD430C89AE77677D96 HTTP/1.1&#34; 200 18276
-192.168.160.141 - admin [16/Feb/2023:23:46:15 +0700] &#34;GET /manager/html HTTP/1.1&#34; 200 19780
-192.168.160.141 - admin [16/Feb/2023:23:46:15 +0700] &#34;POST /manager/html/upload?path=hXx22zOuH8NBoSiTUM4xOdmuvjGFwm&amp;org.apache.catalina.filters.CSRF_NONCE=7F37B67BA60D522F1C3E2C87F71C5DED HTTP/1.1&#34; 200 20176
-192.168.160.141 - - [16/Feb/2023:23:46:15 +0700] &#34;GET /hXx22zOuH8NBoSiTUM4xOdmuvjGFwm/WFRISWBUIGbIkmhjm0MNhAICm.jsp HTTP/1.1&#34; 200 -
-192.168.160.141 - admin [16/Feb/2023:23:46:15 +0700] &#34;GET /manager/html HTTP/1.1&#34; 200 21981
-192.168.160.141 - - [16/Feb/2023:23:43:29 +0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
-192.168.160.141 - - [16/Feb/2023:23:40:51 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.160.141 - - [16/Feb/2023:23:40:51 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.160.141 - - [16/Feb/2023:23:40:51 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.160.141 - - [16/Feb/2023:23:40:51 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.160.1 - - [16/Feb/2023:23:38:30 +0700] &#34;GET /Demo/assets/img/favicon.png HTTP/1.1&#34; 200 481
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/ HTTP/1.1&#34; 200 27026
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/css/swiper-bundle.min.css HTTP/1.1&#34; 200 15564
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/js/main.js HTTP/1.1&#34; 200 5199
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/css/styles.css HTTP/1.1&#34; 200 20706
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/featured3.png HTTP/1.1&#34; 200 71593
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/featured1.png HTTP/1.1&#34; 200 86418
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/js/swiper-bundle.min.js HTTP/1.1&#34; 200 135005
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/home.png HTTP/1.1&#34; 200 227439
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/featured2.png HTTP/1.1&#34; 200 74402
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/new1.png HTTP/1.1&#34; 200 93189
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/story.png HTTP/1.1&#34; 200 148190
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/product3.png HTTP/1.1&#34; 200 81152
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/product2.png HTTP/1.1&#34; 200 110149
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/product4.png HTTP/1.1&#34; 200 81932
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/product1.png HTTP/1.1&#34; 200 95820
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/product5.png HTTP/1.1&#34; 200 94757
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/testimonial1.jpg HTTP/1.1&#34; 200 17215
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/testimonial2.jpg HTTP/1.1&#34; 200 3901
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/testimonial3.jpg HTTP/1.1&#34; 200 8823
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/testimonial.png HTTP/1.1&#34; 200 327677
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/new3.png HTTP/1.1&#34; 200 90617
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/new2.png HTTP/1.1&#34; 200 101140
-192.168.160.1 - - [16/Feb/2023:23:38:29 +0700] &#34;GET /Demo/assets/img/new4.png HTTP/1.1&#34; 200 101275
-192.168.160.1 - - [16/Feb/2023:23:38:24 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.160.1 - - [16/Feb/2023:23:38:24 +0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.160.1 - - [16/Feb/2023:23:38:24 +0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.160.1 - - [16/Feb/2023:23:38:24 +0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.160.1 - - [16/Feb/2023:23:38:24 +0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.160.1 - - [16/Feb/2023:23:38:24 +0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.160.1 - - [16/Feb/2023:23:38:24 +0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.160.1 - - [16/Feb/2023:23:38:24 +0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.160.1 - - [16/Feb/2023:23:38:24 +0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.1.61 - admin [16/Feb/2023:12:25:22 +0700] &#34;POST /manager/html/upload?path=t25TkR6D9XUK3PaRveuP&amp;org.apache.catalina.filters.CSRF_NONCE=667FC6F00B302BC2E688DB966A6E7A0E HTTP/1.1&#34; 200 20106
-192.168.1.61 - - [16/Feb/2023:12:25:22 +0700] &#34;GET /t25TkR6D9XUK3PaRveuP/ARDmP8SAi.jsp HTTP/1.1&#34; 200 -
-192.168.1.61 - admin [16/Feb/2023:12:25:22 +0700] &#34;GET /manager/html HTTP/1.1&#34; 200 21911
-192.168.1.61 - admin [16/Feb/2023:12:25:22 +0700] &#34;POST /manager/html/undeploy?path=/t25TkR6D9XUK3PaRveuP&amp;org.apache.catalina.filters.CSRF_NONCE=1AD04EE693741F901CF99A7ED2B484E4 HTTP/1.1&#34; 200 18266
-192.168.1.61 - admin [16/Feb/2023:12:25:21 +0700] &#34;GET /manager/html HTTP/1.1&#34; 200 19780
-192.168.1.61 - - [16/Feb/2023:12:15:49 +0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
-192.168.1.61 - - [16/Feb/2023:12:15:32 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.1.61 - - [16/Feb/2023:12:15:32 +0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.1.61 - - [16/Feb/2023:12:15:32 +0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.1.61 - - [16/Feb/2023:12:15:32 +0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.1.61 - - [16/Feb/2023:12:15:32 +0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.1.61 - - [16/Feb/2023:12:15:32 +0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.1.61 - - [16/Feb/2023:12:15:32 +0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.1.61 - - [16/Feb/2023:12:15:32 +0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.1.61 - - [16/Feb/2023:12:14:51 +0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
-192.168.1.61 - - [16/Feb/2023:12:13:40 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.1.61 - - [16/Feb/2023:12:13:40 +0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.1.61 - - [16/Feb/2023:12:13:40 +0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.1.61 - - [16/Feb/2023:12:13:40 +0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.1.61 - - [16/Feb/2023:12:13:40 +0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.1.61 - - [16/Feb/2023:12:13:40 +0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.1.61 - - [16/Feb/2023:12:13:40 +0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.1.61 - - [16/Feb/2023:12:13:40 +0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.1.61 - - [16/Feb/2023:12:13:40 +0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.1.61 - - [16/Feb/2023:12:12:30 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.1.61 - - [16/Feb/2023:12:12:30 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.1.61 - - [16/Feb/2023:12:12:30 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.1.61 - - [16/Feb/2023:12:12:30 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.93 - - [03/Feb/2023:12:51:41 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.101.93 - - [03/Feb/2023:12:51:41 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.101.93 - - [03/Feb/2023:12:51:41 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.101.93 - - [03/Feb/2023:12:51:41 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - - [03/Feb/2023:12:50:44 +0700] &#34;GET /Demo/assets/img/favicon.png HTTP/1.1&#34; 200 481
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/ HTTP/1.1&#34; 200 27026
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/featured1.png HTTP/1.1&#34; 200 86418
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/featured3.png HTTP/1.1&#34; 200 71593
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/css/swiper-bundle.min.css HTTP/1.1&#34; 200 15564
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/js/swiper-bundle.min.js HTTP/1.1&#34; 200 135005
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/css/styles.css HTTP/1.1&#34; 200 20706
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/featured2.png HTTP/1.1&#34; 200 74402
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/home.png HTTP/1.1&#34; 200 227439
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/product1.png HTTP/1.1&#34; 200 95820
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/new1.png HTTP/1.1&#34; 200 93189
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/js/main.js HTTP/1.1&#34; 200 5199
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/story.png HTTP/1.1&#34; 200 148190
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/product2.png HTTP/1.1&#34; 200 110149
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/product3.png HTTP/1.1&#34; 200 81152
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/product5.png HTTP/1.1&#34; 200 94757
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/product4.png HTTP/1.1&#34; 200 81932
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/testimonial1.jpg HTTP/1.1&#34; 200 17215
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/testimonial3.jpg HTTP/1.1&#34; 200 8823
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/testimonial.png HTTP/1.1&#34; 200 327677
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/testimonial2.jpg HTTP/1.1&#34; 200 3901
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/new2.png HTTP/1.1&#34; 200 101140
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/new4.png HTTP/1.1&#34; 200 101275
-192.168.101.11 - - [03/Feb/2023:12:50:43 +0700] &#34;GET /Demo/assets/img/new3.png HTTP/1.1&#34; 200 90617
-192.168.101.11 - - [03/Feb/2023:12:50:35 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - - [03/Feb/2023:12:50:35 +0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.101.11 - - [03/Feb/2023:12:50:35 +0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.101.11 - - [03/Feb/2023:12:50:35 +0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.101.11 - - [03/Feb/2023:12:50:35 +0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.101.11 - - [03/Feb/2023:12:50:35 +0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.101.11 - - [03/Feb/2023:12:50:35 +0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.101.11 - - [03/Feb/2023:12:50:35 +0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.101.93 - - [11/Jan/2023:02:41:40 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.101.93 - - [11/Jan/2023:02:41:40 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.93 - - [11/Jan/2023:02:41:39 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.101.93 - - [11/Jan/2023:02:41:39 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.200.10 - - [11/Jan/2023:02:40:53 +0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.200.10 - - [11/Jan/2023:02:40:53 +0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.200.10 - - [11/Jan/2023:02:40:53 +0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.200.10 - - [11/Jan/2023:02:40:53 +0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.200.10 - - [11/Jan/2023:02:40:53 +0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.200.10 - - [11/Jan/2023:02:40:53 +0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.200.10 - - [11/Jan/2023:02:40:53 +0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.200.10 - - [11/Jan/2023:02:40:53 +0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.200.10 - - [11/Jan/2023:02:40:52 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.93 - - [11/Jan/2023:02:37:53 +0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
-192.168.101.11 - - [11/Jan/2023:02:36:32 +0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
-192.168.101.11 - - [11/Jan/2023:02:35:25 +0700] &#34;GET /readme.txt HTTP/1.1&#34; 200 153
-192.168.101.11 - - [11/Jan/2023:02:35:02 +0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
-192.168.200.10 - admin [11/Jan/2023:02:27:30 +0700] &#34;GET /manager/html HTTP/1.1&#34; 200 19780
-192.168.200.10 - - [11/Jan/2023:02:27:30 +0700] &#34;GET /manager/css/manager.css HTTP/1.1&#34; 200 2806
-192.168.200.10 - - [11/Jan/2023:02:27:30 +0700] &#34;GET /manager/images/tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.200.10 - - [11/Jan/2023:02:27:30 +0700] &#34;GET /manager/images/asf-logo.svg HTTP/1.1&#34; 200 20486
-192.168.200.10 - - [11/Jan/2023:02:27:00 +0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.200.10 - - [11/Jan/2023:02:27:00 +0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.200.10 - - [11/Jan/2023:02:27:00 +0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.200.10 - - [11/Jan/2023:02:27:00 +0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.200.10 - - [11/Jan/2023:02:27:00 +0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.200.10 - - [11/Jan/2023:02:26:59 +0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.200.10 - - [11/Jan/2023:02:26:59 +0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.200.10 - - [11/Jan/2023:02:26:59 +0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.200.10 - - [11/Jan/2023:02:26:58 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - - [11/Jan/2023:02:14:59 +0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
-192.168.200.10 - - [11/Jan/2023:02:02:36 +0700] &#34;GET /examples/websocket/index.xhtml HTTP/1.1&#34; 200 1268
-192.168.200.10 - - [11/Jan/2023:02:02:33 +0700] &#34;GET /examples/ HTTP/1.1&#34; 200 1126
-192.168.200.10 - - [11/Jan/2023:01:58:13 +0700] &#34;GET /docs/setup.html HTTP/1.1&#34; 200 12551
-192.168.200.10 - - [11/Jan/2023:01:58:13 +0700] &#34;GET /docs/images/docs-stylesheet.css HTTP/1.1&#34; 200 5780
-192.168.200.10 - - [11/Jan/2023:01:58:13 +0700] &#34;GET /docs/images/tomcat.png HTTP/1.1&#34; 200 5103
-192.168.200.10 - - [11/Jan/2023:01:58:13 +0700] &#34;GET /docs/images/asf-logo.svg HTTP/1.1&#34; 200 20486
-192.168.200.10 - - [11/Jan/2023:01:58:13 +0700] &#34;GET /docs/images/fonts/fonts.css HTTP/1.1&#34; 200 1943
-192.168.200.10 - - [11/Jan/2023:01:58:13 +0700] &#34;GET /docs/images/fonts/OpenSans400.woff HTTP/1.1&#34; 200 21956
-192.168.200.10 - - [11/Jan/2023:01:58:13 +0700] &#34;GET /docs/images/fonts/OpenSans600.woff HTTP/1.1&#34; 200 22604
-192.168.200.10 - - [11/Jan/2023:01:58:13 +0700] &#34;GET /docs/images/fonts/OpenSans700.woff HTTP/1.1&#34; 200 22748
-192.168.200.10 - - [11/Jan/2023:01:57:41 +0700] &#34;GET /manager/css/manager.css HTTP/1.1&#34; 200 2806
-192.168.200.10 - - [11/Jan/2023:01:57:41 +0700] &#34;GET /manager/images/tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.200.10 - - [11/Jan/2023:01:57:41 +0700] &#34;GET /manager/images/asf-logo.svg HTTP/1.1&#34; 200 20486
-192.168.200.10 - admin [11/Jan/2023:01:57:40 +0700] &#34;GET /manager/status HTTP/1.1&#34; 200 4851
-192.168.200.10 - - [11/Jan/2023:01:55:42 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.200.10 - - [11/Jan/2023:01:55:42 +0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.200.10 - - [11/Jan/2023:01:55:42 +0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.200.10 - - [11/Jan/2023:01:55:42 +0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.200.10 - - [11/Jan/2023:01:55:42 +0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.200.10 - - [11/Jan/2023:01:55:42 +0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.200.10 - - [11/Jan/2023:01:55:42 +0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.200.10 - - [11/Jan/2023:01:55:42 +0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.200.10 - - [11/Jan/2023:01:55:42 +0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.101.11 - - [11/Jan/2023:01:27:12 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.101.11 - - [11/Jan/2023:01:27:12 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.101.11 - - [11/Jan/2023:01:27:12 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.101.11 - - [11/Jan/2023:01:27:12 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - - [11/Jan/2023:01:22:41 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - - [11/Jan/2023:01:22:41 +0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.101.11 - - [10/Jan/2023:16:40:26 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - - [06/Jan/2023:18:04:29 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - - [06/Jan/2023:03:28:26 -0700] &#34;GET /Demo/assets/img/favicon.png HTTP/1.1&#34; 200 481
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/ HTTP/1.1&#34; 200 27026
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/css/swiper-bundle.min.css HTTP/1.1&#34; 200 15564
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/css/styles.css HTTP/1.1&#34; 200 20706
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/js/swiper-bundle.min.js HTTP/1.1&#34; 200 135005
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/js/main.js HTTP/1.1&#34; 200 5199
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/featured2.png HTTP/1.1&#34; 200 74402
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/story.png HTTP/1.1&#34; 200 148190
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/product1.png HTTP/1.1&#34; 200 95820
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/product3.png HTTP/1.1&#34; 200 81152
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/testimonial2.jpg HTTP/1.1&#34; 200 3901
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/featured1.png HTTP/1.1&#34; 200 86418
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/featured3.png HTTP/1.1&#34; 200 71593
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/new1.png HTTP/1.1&#34; 200 93189
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/testimonial1.jpg HTTP/1.1&#34; 200 17215
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/home.png HTTP/1.1&#34; 200 227439
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/product2.png HTTP/1.1&#34; 200 110149
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/product4.png HTTP/1.1&#34; 200 81932
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/testimonial.png HTTP/1.1&#34; 200 327677
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/product5.png HTTP/1.1&#34; 200 94757
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/new2.png HTTP/1.1&#34; 200 101140
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/new3.png HTTP/1.1&#34; 200 90617
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/new4.png HTTP/1.1&#34; 200 101275
-192.168.101.11 - - [06/Jan/2023:03:28:25 -0700] &#34;GET /Demo/assets/img/testimonial3.jpg HTTP/1.1&#34; 200 8823
-192.168.101.11 - - [06/Jan/2023:03:28:13 -0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.101.11 - - [06/Jan/2023:03:28:13 -0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.101.11 - - [06/Jan/2023:03:28:13 -0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.101.11 - - [06/Jan/2023:03:28:13 -0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.101.11 - - [06/Jan/2023:03:28:13 -0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.101.11 - - [06/Jan/2023:03:28:13 -0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.101.11 - - [06/Jan/2023:03:28:13 -0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.101.11 - - [06/Jan/2023:03:28:13 -0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.101.11 - - [06/Jan/2023:03:28:12 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - - [06/Jan/2023:03:08:37 -0700] &#34;GET /Demo/ HTTP/1.1&#34; 200 27026
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/?fbclid=IwAR2ljFz07ang60olAPoDqwnxbSHCYY0rDAYnGRWe693N7zUAqOu3CGg_zsY HTTP/1.1&#34; 200 27026
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/css/swiper-bundle.min.css HTTP/1.1&#34; 200 15564
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/css/styles.css HTTP/1.1&#34; 200 20706
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/js/swiper-bundle.min.js HTTP/1.1&#34; 200 135005
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/js/main.js HTTP/1.1&#34; 200 5199
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/new2.png HTTP/1.1&#34; 200 101140
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/new3.png HTTP/1.1&#34; 200 90617
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/story.png HTTP/1.1&#34; 200 148190
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/featured3.png HTTP/1.1&#34; 200 71593
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/featured1.png HTTP/1.1&#34; 200 86418
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/testimonial.png HTTP/1.1&#34; 200 327677
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/new1.png HTTP/1.1&#34; 200 93189
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/home.png HTTP/1.1&#34; 200 227439
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/featured2.png HTTP/1.1&#34; 200 74402
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/product1.png HTTP/1.1&#34; 200 95820
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/product3.png HTTP/1.1&#34; 200 81152
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/product2.png HTTP/1.1&#34; 200 110149
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/product5.png HTTP/1.1&#34; 200 94757
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/new4.png HTTP/1.1&#34; 200 101275
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/product4.png HTTP/1.1&#34; 200 81932
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/testimonial1.jpg HTTP/1.1&#34; 200 17215
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/testimonial2.jpg HTTP/1.1&#34; 200 3901
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/testimonial3.jpg HTTP/1.1&#34; 200 8823
-192.168.101.11 - - [06/Jan/2023:03:08:31 -0700] &#34;GET /Demo/assets/img/favicon.png HTTP/1.1&#34; 200 481
-192.168.101.20 - - [06/Jan/2023:03:01:49 -0700] &#34;GET /Demo/assets/img/favicon.png HTTP/1.1&#34; 200 481
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/css/swiper-bundle.min.css HTTP/1.1&#34; 200 15564
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/css/styles.css HTTP/1.1&#34; 200 20706
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/js/swiper-bundle.min.js HTTP/1.1&#34; 200 135005
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/js/main.js HTTP/1.1&#34; 200 5199
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/featured3.png HTTP/1.1&#34; 200 71593
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/featured1.png HTTP/1.1&#34; 200 86418
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/new1.png HTTP/1.1&#34; 200 93189
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/home.png HTTP/1.1&#34; 200 227439
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/featured2.png HTTP/1.1&#34; 200 74402
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/story.png HTTP/1.1&#34; 200 148190
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/product1.png HTTP/1.1&#34; 200 95820
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/product2.png HTTP/1.1&#34; 200 110149
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/product3.png HTTP/1.1&#34; 200 81152
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/product5.png HTTP/1.1&#34; 200 94757
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/product4.png HTTP/1.1&#34; 200 81932
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/testimonial3.jpg HTTP/1.1&#34; 200 8823
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/testimonial.png HTTP/1.1&#34; 200 327677
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/testimonial2.jpg HTTP/1.1&#34; 200 3901
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/new2.png HTTP/1.1&#34; 200 101140
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/testimonial1.jpg HTTP/1.1&#34; 200 17215
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/new3.png HTTP/1.1&#34; 200 90617
-192.168.101.20 - - [06/Jan/2023:03:01:48 -0700] &#34;GET /Demo/assets/img/new4.png HTTP/1.1&#34; 200 101275
-192.168.101.20 - - [06/Jan/2023:03:01:47 -0700] &#34;GET /Demo/?fbclid=IwAR18Ori8VT6RLEiuxzcug4k4ZHkg3ylFinotCc2RV57VM3Clmxd-HhztvUY HTTP/1.1&#34; 200 27026
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/?fbclid=IwAR381VTDE-CEpzihsbyybvc6j75zNfVHZKDQLz2OdzaeWLGGDb3I--26eGg HTTP/1.1&#34; 200 27026
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/css/swiper-bundle.min.css HTTP/1.1&#34; 200 15564
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/css/styles.css HTTP/1.1&#34; 200 20706
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/js/swiper-bundle.min.js HTTP/1.1&#34; 200 135005
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/featured1.png HTTP/1.1&#34; 200 86418
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/featured3.png HTTP/1.1&#34; 200 71593
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/new1.png HTTP/1.1&#34; 200 93189
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/js/main.js HTTP/1.1&#34; 200 5199
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/home.png HTTP/1.1&#34; 200 227439
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/featured2.png HTTP/1.1&#34; 200 74402
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/product1.png HTTP/1.1&#34; 200 95820
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/story.png HTTP/1.1&#34; 200 148190
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/product3.png HTTP/1.1&#34; 200 81152
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/product4.png HTTP/1.1&#34; 200 81932
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/product2.png HTTP/1.1&#34; 200 110149
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/product5.png HTTP/1.1&#34; 200 94757
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/testimonial2.jpg HTTP/1.1&#34; 200 3901
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/testimonial1.jpg HTTP/1.1&#34; 200 17215
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/testimonial3.jpg HTTP/1.1&#34; 200 8823
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/testimonial.png HTTP/1.1&#34; 200 327677
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/new2.png HTTP/1.1&#34; 200 101140
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/new4.png HTTP/1.1&#34; 200 101275
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/new3.png HTTP/1.1&#34; 200 90617
-192.168.101.38 - - [06/Jan/2023:03:01:44 -0700] &#34;GET /Demo/assets/img/favicon.png HTTP/1.1&#34; 200 481
-192.168.101.11 - - [06/Jan/2023:03:01:20 -0700] &#34;GET /Demo/assets/img/favicon.png HTTP/1.1&#34; 200 481
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/ HTTP/1.1&#34; 200 27026
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/css/swiper-bundle.min.css HTTP/1.1&#34; 200 15564
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/css/styles.css HTTP/1.1&#34; 200 20706
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/js/main.js HTTP/1.1&#34; 200 5199
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/featured1.png HTTP/1.1&#34; 200 86418
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/home.png HTTP/1.1&#34; 200 227439
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/js/swiper-bundle.min.js HTTP/1.1&#34; 200 135005
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/featured2.png HTTP/1.1&#34; 200 74402
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/new1.png HTTP/1.1&#34; 200 93189
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/story.png HTTP/1.1&#34; 200 148190
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/product2.png HTTP/1.1&#34; 200 110149
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/product3.png HTTP/1.1&#34; 200 81152
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/product1.png HTTP/1.1&#34; 200 95820
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/featured3.png HTTP/1.1&#34; 200 71593
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/product4.png HTTP/1.1&#34; 200 81932
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/product5.png HTTP/1.1&#34; 200 94757
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/testimonial2.jpg HTTP/1.1&#34; 200 3901
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/testimonial.png HTTP/1.1&#34; 200 327677
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/testimonial3.jpg HTTP/1.1&#34; 200 8823
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/testimonial1.jpg HTTP/1.1&#34; 200 17215
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/new3.png HTTP/1.1&#34; 200 90617
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/new4.png HTTP/1.1&#34; 200 101275
-192.168.101.11 - - [06/Jan/2023:03:01:19 -0700] &#34;GET /Demo/assets/img/new2.png HTTP/1.1&#34; 200 101140
-192.168.101.11 - admin [06/Jan/2023:03:01:14 -0700] &#34;POST /manager/html/upload?org.apache.catalina.filters.CSRF_NONCE=4A7C863F635BB6E18C7465FD88AA9E5F HTTP/1.1&#34; 200 18192
-192.168.101.11 - admin [06/Jan/2023:02:58:51 -0700] &#34;POST /manager/html/undeploy?path=/Demo&amp;org.apache.catalina.filters.CSRF_NONCE=5F22FC3C34D56734BFC55DB87411B142 HTTP/1.1&#34; 200 16447
-192.168.101.11 - - [06/Jan/2023:02:58:38 -0700] &#34;GET /examples/ HTTP/1.1&#34; 200 1126
-192.168.101.11 - admin [06/Jan/2023:02:58:24 -0700] &#34;GET /manager/html HTTP/1.1&#34; 200 18192
-192.168.101.11 - - [06/Jan/2023:02:58:22 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - admin [06/Jan/2023:02:57:54 -0700] &#34;POST /manager/html/upload?org.apache.catalina.filters.CSRF_NONCE=201D8F48B89C653E62A921A1FE19311C HTTP/1.1&#34; 200 18192
-192.168.101.11 - admin [06/Jan/2023:02:57:37 -0700] &#34;POST /manager/html/undeploy?path=/Demo&amp;org.apache.catalina.filters.CSRF_NONCE=411976DF9F9DC0F1E226DF0404759C1C HTTP/1.1&#34; 200 16447
-192.168.101.11 - admin [06/Jan/2023:02:57:29 -0700] &#34;GET /manager/html HTTP/1.1&#34; 200 18192
-192.168.101.11 - - [06/Jan/2023:02:57:28 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - admin [06/Jan/2023:02:56:16 -0700] &#34;POST /manager/html/upload?org.apache.catalina.filters.CSRF_NONCE=E238331BF9B334870E8578E4C9FAB94B HTTP/1.1&#34; 200 18192
-192.168.101.11 - admin [06/Jan/2023:02:55:53 -0700] &#34;GET /manager/html HTTP/1.1&#34; 200 16387
-192.168.101.11 - - [06/Jan/2023:02:55:51 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - - [06/Jan/2023:01:43:28 -0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
-192.168.101.11 - admin [06/Jan/2023:01:20:59 -0700] &#34;GET /manager/html HTTP/1.1&#34; 200 16387
-192.168.101.11 - admin [06/Jan/2023:01:20:49 -0700] &#34;GET /manager/status HTTP/1.1&#34; 200 4956
-192.168.101.11 - admin [06/Jan/2023:01:20:46 -0700] &#34;GET /manager/html HTTP/1.1&#34; 200 16387
-192.168.101.11 - - [06/Jan/2023:01:20:37 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - admin [06/Jan/2023:01:19:45 -0700] &#34;GET /manager/html HTTP/1.1&#34; 200 16387
-192.168.101.11 - - [06/Jan/2023:01:19:43 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - admin [06/Jan/2023:00:35:59 -0700] &#34;POST /manager/html/deploy?org.apache.catalina.filters.CSRF_NONCE=9AAA9616EB05A0F812A091FE79AACA79 HTTP/1.1&#34; 200 16440
-192.168.101.11 - admin [06/Jan/2023:00:35:57 -0700] &#34;POST /manager/html/deploy;jsessionid=AFA5391936FB5A4128E029F87BF3795D?org.apache.catalina.filters.CSRF_NONCE=EBEC0A9FDAD75F704B5A22DE2758D4C5 HTTP/1.1&#34; 200 16440
-192.168.101.11 - admin [06/Jan/2023:00:35:21 -0700] &#34;GET /manager/html HTTP/1.1&#34; 200 17758
-192.168.101.11 - - [06/Jan/2023:00:35:21 -0700] &#34;GET /manager/css/manager.css HTTP/1.1&#34; 200 2806
-192.168.101.11 - - [06/Jan/2023:00:35:21 -0700] &#34;GET /manager/images/tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.101.11 - - [06/Jan/2023:00:35:21 -0700] &#34;GET /manager/images/asf-logo.svg HTTP/1.1&#34; 200 20486
-192.168.101.11 - - [06/Jan/2023:00:34:41 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - - [06/Jan/2023:00:34:41 -0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.101.11 - - [06/Jan/2023:00:34:41 -0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.101.11 - - [06/Jan/2023:00:34:41 -0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.101.11 - - [06/Jan/2023:00:34:41 -0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.101.11 - - [06/Jan/2023:00:34:41 -0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.101.11 - - [06/Jan/2023:00:34:41 -0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.101.11 - - [06/Jan/2023:00:34:41 -0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.101.11 - - [06/Jan/2023:00:34:41 -0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.101.93 - admin [27/Dec/2022:01:39:22 -0700] &#34;POST /manager/html/upload?path=5U5D6v&amp;org.apache.catalina.filters.CSRF_NONCE=CBD482B7AFF08CCFF152F477751E7E74 HTTP/1.1&#34; 200 18206
-192.168.101.93 - - [27/Dec/2022:01:39:22 -0700] &#34;GET /5U5D6v/SAxD25kvmMbL.jsp HTTP/1.1&#34; 200 -
-192.168.101.93 - admin [27/Dec/2022:01:39:22 -0700] &#34;GET /manager/html HTTP/1.1&#34; 200 19790
-192.168.101.93 - admin [27/Dec/2022:01:39:22 -0700] &#34;POST /manager/html/undeploy?path=/5U5D6v&amp;org.apache.catalina.filters.CSRF_NONCE=3A0632C7912C8580337F2F05C4DE741A HTTP/1.1&#34; 200 16449
-192.168.101.93 - admin [27/Dec/2022:01:39:21 -0700] &#34;GET /manager/html HTTP/1.1&#34; 200 17758
-192.168.101.93 - - [27/Dec/2022:01:31:32 -0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
-192.168.101.93 - - [27/Dec/2022:01:29:18 -0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
-192.168.101.93 - - [27/Dec/2022:01:26:57 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.93 - - [27/Dec/2022:01:26:57 -0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.101.93 - - [27/Dec/2022:01:26:57 -0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.101.93 - - [27/Dec/2022:01:26:57 -0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.101.93 - - [27/Dec/2022:01:26:57 -0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.101.93 - - [27/Dec/2022:01:26:57 -0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.101.93 - - [27/Dec/2022:01:26:57 -0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.101.93 - - [27/Dec/2022:01:26:57 -0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.101.93 - - [27/Dec/2022:01:22:38 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.93 - - [27/Dec/2022:01:22:38 -0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.101.93 - - [27/Dec/2022:01:22:38 -0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.101.93 - - [27/Dec/2022:01:22:38 -0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.101.93 - - [27/Dec/2022:01:22:38 -0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.101.93 - - [27/Dec/2022:01:22:38 -0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.101.93 - - [27/Dec/2022:01:22:38 -0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.101.93 - - [27/Dec/2022:01:22:38 -0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.101.93 - - [27/Dec/2022:01:22:38 -0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.101.93 - - [27/Dec/2022:01:21:08 -0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.101.93 - - [27/Dec/2022:01:21:08 -0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.101.93 - - [27/Dec/2022:01:21:08 -0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.101.93 - - [27/Dec/2022:01:21:08 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - - [25/Dec/2022:22:10:08 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.101.11 - - [25/Dec/2022:22:10:08 -0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.101.11 - - [25/Dec/2022:22:10:08 -0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.101.11 - - [25/Dec/2022:22:10:08 -0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.101.11 - - [25/Dec/2022:22:10:08 -0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.101.11 - - [25/Dec/2022:22:10:08 -0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.101.11 - - [25/Dec/2022:22:10:08 -0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.101.11 - - [25/Dec/2022:22:10:08 -0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.101.11 - - [25/Dec/2022:22:10:08 -0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.101.86 - - [25/Dec/2022:07:05:29 -0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.101.86 - - [25/Dec/2022:07:05:29 -0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.101.86 - - [25/Dec/2022:07:05:29 -0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.101.86 - - [25/Dec/2022:07:05:29 -0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.101.86 - - [25/Dec/2022:07:05:29 -0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.101.86 - - [25/Dec/2022:07:05:29 -0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.101.86 - - [25/Dec/2022:07:05:29 -0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.101.86 - - [25/Dec/2022:07:05:29 -0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.101.86 - - [25/Dec/2022:07:05:28 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.1.12 - - [23/Dec/2022:07:49:11 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.1.12 - - [23/Dec/2022:07:49:11 -0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.1.12 - - [23/Dec/2022:07:49:11 -0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.1.12 - - [23/Dec/2022:07:49:11 -0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.1.12 - - [23/Dec/2022:07:49:11 -0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.1.12 - - [23/Dec/2022:07:49:11 -0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.1.12 - - [23/Dec/2022:07:49:11 -0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.1.12 - - [23/Dec/2022:07:49:11 -0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.1.12 - - [23/Dec/2022:07:49:11 -0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.1.12 - - [23/Dec/2022:07:03:55 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.1.12 - - [23/Dec/2022:07:03:55 -0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.1.12 - - [23/Dec/2022:07:01:55 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.1.12 - - [23/Dec/2022:07:01:55 -0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.1.16 - - [23/Dec/2022:07:00:33 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.1.16 - - [23/Dec/2022:07:00:33 -0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.1.16 - - [23/Dec/2022:07:00:33 -0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.1.16 - - [23/Dec/2022:07:00:33 -0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.1.16 - - [23/Dec/2022:07:00:33 -0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.1.16 - - [23/Dec/2022:07:00:33 -0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.1.16 - - [23/Dec/2022:07:00:33 -0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.1.16 - - [23/Dec/2022:07:00:33 -0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.1.16 - - [23/Dec/2022:07:00:33 -0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.1.12 - - [23/Dec/2022:06:56:21 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.1.12 - - [23/Dec/2022:06:56:21 -0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.1.12 - - [23/Dec/2022:06:56:21 -0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.1.12 - - [23/Dec/2022:06:56:21 -0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.1.12 - - [23/Dec/2022:06:56:21 -0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.1.12 - - [23/Dec/2022:06:56:21 -0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.1.12 - - [23/Dec/2022:06:56:21 -0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.1.12 - - [23/Dec/2022:06:56:21 -0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.1.12 - - [23/Dec/2022:06:56:21 -0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.1.15 - - [23/Dec/2022:06:56:16 -0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.1.15 - - [23/Dec/2022:06:56:15 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.1.15 - - [23/Dec/2022:06:56:15 -0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.1.15 - - [23/Dec/2022:06:56:15 -0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.1.15 - - [23/Dec/2022:06:56:15 -0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.1.15 - - [23/Dec/2022:06:56:15 -0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.1.15 - - [23/Dec/2022:06:56:15 -0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.1.15 - - [23/Dec/2022:06:56:15 -0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.1.15 - - [23/Dec/2022:06:56:15 -0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.50.10 - - [23/Dec/2022:06:41:29 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.50.10 - - [23/Dec/2022:06:41:29 -0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.50.10 - - [23/Dec/2022:06:41:29 -0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.50.10 - - [23/Dec/2022:06:41:29 -0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.50.10 - - [23/Dec/2022:06:41:29 -0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.50.10 - - [23/Dec/2022:06:41:29 -0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.50.10 - - [23/Dec/2022:06:41:29 -0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.50.10 - - [23/Dec/2022:06:41:29 -0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.50.10 - - [23/Dec/2022:06:38:04 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.50.10 - - [23/Dec/2022:06:38:04 -0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.50.10 - - [23/Dec/2022:06:38:04 -0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.50.10 - - [23/Dec/2022:06:38:04 -0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.50.10 - - [23/Dec/2022:06:38:04 -0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.50.10 - - [23/Dec/2022:06:38:04 -0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.50.10 - - [23/Dec/2022:06:38:04 -0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.50.10 - - [23/Dec/2022:06:38:04 -0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.50.10 - - [23/Dec/2022:06:38:04 -0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.160.134 - - [23/Dec/2022:05:50:53 -0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.160.134 - - [23/Dec/2022:05:50:53 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.160.134 - - [23/Dec/2022:05:50:52 -0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.160.134 - - [23/Dec/2022:05:50:52 -0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.160.134 - admin [22/Dec/2022:04:08:07 -0700] &#34;GET /manager/html HTTP/1.1&#34; 200 17758
-192.168.160.134 - admin [22/Dec/2022:04:08:07 -0700] &#34;POST /manager/html/upload?path=qbFlm&amp;org.apache.catalina.filters.CSRF_NONCE=92CD966A94B4491F7D3E84BC21DD9C30 HTTP/1.1&#34; 200 18199
-192.168.160.134 - - [22/Dec/2022:04:08:07 -0700] &#34;GET /qbFlm/3zRxf3v.jsp HTTP/1.1&#34; 200 -
-192.168.160.134 - admin [22/Dec/2022:04:08:07 -0700] &#34;GET /manager/html HTTP/1.1&#34; 200 19783
-192.168.160.134 - admin [22/Dec/2022:04:08:07 -0700] &#34;POST /manager/html/undeploy?path=/qbFlm&amp;org.apache.catalina.filters.CSRF_NONCE=494BB934D7254DA9E61E3F9236B677B5 HTTP/1.1&#34; 200 16448
-192.168.160.134 - - [22/Dec/2022:03:38:53 -0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
-192.168.160.134 - - [22/Dec/2022:03:37:46 -0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
-192.168.160.134 - - [22/Dec/2022:03:36:35 -0700] &#34;GET / HTTP/1.1&#34; 200 11156
-192.168.160.134 - - [22/Dec/2022:03:36:35 -0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
-192.168.160.134 - - [22/Dec/2022:03:36:35 -0700] &#34;GET /tomcat.svg HTTP/1.1&#34; 200 67795
-192.168.160.134 - - [22/Dec/2022:03:36:35 -0700] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
-192.168.160.134 - - [22/Dec/2022:03:36:35 -0700] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
-192.168.160.134 - - [22/Dec/2022:03:36:35 -0700] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
-192.168.160.134 - - [22/Dec/2022:03:36:35 -0700] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
-192.168.160.134 - - [22/Dec/2022:03:36:35 -0700] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
-192.168.160.134 - - [22/Dec/2022:03:36:35 -0700] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
-192.168.160.134 - - [22/Dec/2022:02:49:26 -0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.160.134 - - [22/Dec/2022:02:49:26 -0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.160.134 - - [22/Dec/2022:02:49:26 -0700] &#34;GET / HTTP/1.0&#34; 200 11136
-192.168.160.134 - - [22/Dec/2022:02:49:26 -0700] &#34;GET / HTTP/1.1&#34; 200 11156</textarea>
-            </div>
             
+            <div class="log-area-container">
+                <label for="">Apache</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>192.168.88.1 - - [18/Feb/2023:22:41:22 +0700] &#34;GET / HTTP/1.1&#34; 200 3477 &#34;-&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.49&#34;
+192.168.88.1 - - [18/Feb/2023:22:41:22 +0700] &#34;GET /icons/ubuntu-logo.png HTTP/1.1&#34; 200 3623 &#34;http://192.168.88.130/&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.49&#34;</textarea>
+            </div>
             
         </div>
         
-        
-        
+
         <div class="analysis-section-container">
             <div class="analyze-info-container">
-                <p class="analyze-label">DoS</p>
-                <p class="analyze-label">Signature Log: <span>The number of requests more than 5 in 5 minutes</span></p>
+                <p class="analyze-label">SQL injection</p>
+                <p class="analyze-label">Signature Log: <span>" 'or 1=1 -- ", " UNION SELECT " and " SELECT * FROM
+                        ".</span></p>
             </div>
-            
-            <div class="dos-ip-container">
-                <label for="">Tomcat</label>
-                <table>
-                    <tr>
-                        <th>Time</th>
-                        <th>IP</th>
-                        <th>Number of requests</th>
-                    </tr>
 
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 22/Dec/2022:02:49:26</br>
-                        </td>
-                        <td>192.168.160.134</td>
-                        <td>9265</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 23/Dec/2022:06:38:04</br>
-                        </td>
-                        <td>192.168.50.10</td>
-                        <td>17</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 23/Dec/2022:06:56:15</br>
-                        </td>
-                        <td>192.168.1.15</td>
-                        <td>9</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 23/Dec/2022:06:56:21</br>
-                        </td>
-                        <td>192.168.1.12</td>
-                        <td>22</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 23/Dec/2022:07:00:33</br>
-                        </td>
-                        <td>192.168.1.16</td>
-                        <td>9</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 25/Dec/2022:07:05:28</br>
-                        </td>
-                        <td>192.168.101.86</td>
-                        <td>9</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 25/Dec/2022:22:10:08</br>
-                        </td>
-                        <td>192.168.101.11</td>
-                        <td>14028</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 27/Dec/2022:01:21:08</br>
-                        </td>
-                        <td>192.168.101.93</td>
-                        <td>9280</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 06/Jan/2023:03:01:44</br>
-                        </td>
-                        <td>192.168.101.38</td>
-                        <td>24</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 06/Jan/2023:03:01:47</br>
-                        </td>
-                        <td>192.168.101.20</td>
-                        <td>24</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 11/Jan/2023:01:55:42</br>
-                        </td>
-                        <td>192.168.200.10</td>
-                        <td>51</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 16/Feb/2023:12:12:30</br>
-                        </td>
-                        <td>192.168.1.61</td>
-                        <td>9263</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 16/Feb/2023:23:38:24</br>
-                        </td>
-                        <td>192.168.160.1</td>
-                        <td>34</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b>From:</b> 16/Feb/2023:23:40:51</br>
-                        </td>
-                        <td>192.168.160.141</td>
-                        <td>9245</td>
-                    </tr>
-                    
-                </table>
+            
+
+            
+            <div class="log-area-container">
+                <label for="">Apache</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>
+                    No detect attack
+                </textarea>
+            </div>
+            
+
+        </div>
+
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">XSS</p>
+                <p class="analyze-label">Signature Log: <span>script + url , script + file</span></p>
             </div>
             
             
+
+            
+            <div class="log-area-container">
+                <label for="">Apache</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>
+                    No detect attack
+                </textarea>
+            </div>
+            
+
         </div>
+
+        
         
         
     </div>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="report.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="header-container">
+        <div class="title-container">
+            <p class="title-content">FLog Report</p>
+        </div>
+        <div class="info-container">
+            <div class="time-container">
+                <p class="time-text">
+                    <b>From:</b> 18/Feb/2023:22:41:22</br>
+                    <b>To:</b> 16/Apr/2023:23:33:05
+                </p>
+            </div>
+            <hr>
+            <div class="log-path-container">
+                <p class="log-path-title"><b>Log Path:</b></p>
+                <ul class="path-log-list">
+
+                    <li>
+                        <p><span><b>&nbsp;- Tomcat:</b></span>
+                            /opt/tomcat/logs</p>
+                    </li>
+
+
+                    <li>
+                        <p><span><b>&nbsp;- Apache:</b></span> /var/log/apache2
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <hr>
+            <div class="log-path-container">
+                <p class="log-path-title"><b>Victim Machine:</b></p>
+                <ul class="path-log-list">
+                  <li>
+                        <p><span><b>&nbsp;- IP Address: </b></span> 192.168.200.10
+                        </p>
+                    </li>
+                    <li>
+                        <p><span><b>&nbsp;- Apache Tomcat version: </b></span> 9.0.53
+                        </p>
+                    </li>
+            <hr>
+                </ul>
+            </div>
+            
+        </div>
+
+        <div class="overall-asessment-container">
+            <p><b>Detected attack types:</b>
+
+                Nmap scanning, Metasploit attack, Dirb brute force, DoS
+
+            </p>
+        </div>
+    </div>
+
+    <div class="body-container">
+        <div class="body-titile-container">
+            <!-- <hr> -->
+
+            <h1 class="body-title">PoC</h1>
+
+        </div>
+
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">Nmap Scanning</p>
+                <p class="analyze-label">Signature Log: <span>nmaplowercheck</span></p>
+            </div>
+
+            <div class="log-area-container">
+                <label for="">Tomcat</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>192.168.160.131 - - [11/Apr/2023:22:48:19 +0700] &#34;GET /nmaplowercheck1681228101 HTTP/1.1&#34; 404 775
+192.168.160.131 - - [08/Apr/2023:23:52:57 +0700] &#34;GET /nmaplowercheck1680972778 HTTP/1.1&#34; 404 775
+192.168.160.131 - - [05/Apr/2023:22:54:37 +0700] &#34;GET /nmaplowercheck1680710077 HTTP/1.1&#34; 404 775
+192.168.160.131 - - [03/Apr/2023:11:13:27 -0600] &#34;GET /nmaplowercheck1680542007 HTTP/1.1&#34; 404 775
+192.168.160.131 - - [03/Apr/2023:10:21:14 -0600] &#34;GET /nmaplowercheck1680538873 HTTP/1.1&#34; 404 775</textarea>
+            </div>
+
+
+            <div class="log-area-container">
+                <label for="">Apache</label>
+                <textarea name="" id="" cols="30" rows="10"
+                    readonly>192.168.160.131 - - [11/Apr/2023:22:48:19 +0700] &#34;GET /nmaplowercheck1681228101 HTTP/1.1&#34; 404 457 &#34;-&#34; &#34;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&#34;
+192.168.160.131 - - [08/Apr/2023:23:52:57 +0700] &#34;GET /nmaplowercheck1680972778 HTTP/1.1&#34; 404 457 &#34;-&#34; &#34;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&#34;
+192.168.160.131 - - [05/Apr/2023:22:54:37 +0700] &#34;GET /nmaplowercheck1680710077 HTTP/1.1&#34; 404 457 &#34;-&#34; &#34;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&#34;
+192.168.160.131 - - [05/Apr/2023:22:23:19 +0700] &#34;GET /nmaplowercheck1680708199 HTTP/1.1&#34; 404 457 &#34;-&#34; &#34;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&#34;
+192.168.160.131 - - [03/Apr/2023:11:13:27 -0600] &#34;GET /nmaplowercheck1680542007 HTTP/1.1&#34; 404 457 &#34;-&#34; &#34;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&#34;
+192.168.160.131 - - [03/Apr/2023:10:21:14 -0600] &#34;GET /nmaplowercheck1680538873 HTTP/1.1&#34; 404 457 &#34;-&#34; &#34;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&#34;</textarea>
+            </div>
+
+        </div>
+
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">Nmap Scanning</p>
+                <p class="analyze-label">Signature Log: <span>nmaplowercheck</span></p>
+            </div>
+
+            <div class="log-area-container">
+                <label for="">Tomcat</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>192.168.160.131 - - [11/Apr/2023:22:48:19 +0700] &#34;GET /nmaplowercheck1681228101 HTTP/1.1&#34; 404 775
+192.168.160.131 - - [08/Apr/2023:23:52:57 +0700] &#34;GET /nmaplowercheck1680972778 HTTP/1.1&#34; 404 775
+192.168.160.131 - - [05/Apr/2023:22:54:37 +0700] &#34;GET /nmaplowercheck1680710077 HTTP/1.1&#34; 404 775
+192.168.160.131 - - [03/Apr/2023:11:13:27 -0600] &#34;GET /nmaplowercheck1680542007 HTTP/1.1&#34; 404 775
+192.168.160.131 - - [03/Apr/2023:10:21:14 -0600] &#34;GET /nmaplowercheck1680538873 HTTP/1.1&#34; 404 775</textarea>
+            </div>
+
+
+            <div class="log-area-container">
+                <label for="">Apache</label>
+                <textarea name="" id="" cols="30" rows="10"
+                    readonly>192.168.160.131 - - [11/Apr/2023:22:48:19 +0700] &#34;GET /nmaplowercheck1681228101 HTTP/1.1&#34; 404 457 &#34;-&#34; &#34;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&#34;
+192.168.160.131 - - [08/Apr/2023:23:52:57 +0700] &#34;GET /nmaplowercheck1680972778 HTTP/1.1&#34; 404 457 &#34;-&#34; &#34;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&#34;
+192.168.160.131 - - [05/Apr/2023:22:54:37 +0700] &#34;GET /nmaplowercheck1680710077 HTTP/1.1&#34; 404 457 &#34;-&#34; &#34;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&#34;
+192.168.160.131 - - [05/Apr/2023:22:23:19 +0700] &#34;GET /nmaplowercheck1680708199 HTTP/1.1&#34; 404 457 &#34;-&#34; &#34;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&#34;
+192.168.160.131 - - [03/Apr/2023:11:13:27 -0600] &#34;GET /nmaplowercheck1680542007 HTTP/1.1&#34; 404 457 &#34;-&#34; &#34;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&#34;
+192.168.160.131 - - [03/Apr/2023:10:21:14 -0600] &#34;GET /nmaplowercheck1680538873 HTTP/1.1&#34; 404 457 &#34;-&#34; &#34;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&#34;</textarea>
+            </div>
+
+        </div>
+
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">SQL injection</p>
+                <p class="analyze-label">Signature Log: <span>" 'or 1=1 -- ", " UNION SELECT " and " SELECT * FROM
+                        ".</span></p>
+            </div>
+
+            <div class="log-area-container">
+                <label for="">Tomcat</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>
+                    No detect attack
+                </textarea>
+            </div>
+
+
+            <div class="log-area-container">
+                <label for="">Apache</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>
+                    No detect attack
+                </textarea>
+            </div>
+
+        </div>
+
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">XSS</p>
+                <p class="analyze-label">Signature Log: <span>script + url , script + file</span></p>
+            </div>
+
+            <div class="log-area-container">
+                <label for="">Tomcat</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>
+                    No detect attack
+                </textarea>
+            </div>
+
+
+            <div class="log-area-container">
+                <label for="">Apache</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>
+                    No detect attack
+                </textarea>
+            </div>
+
+        </div>
+
+
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">Metasploit Attack</p>
+                <p class="analyze-label">Signature Log: <span>apache.catalina.filters</span></p>
+            </div>
+
+            <div class="log-area-container">
+                <label for="">Tomcat</label>
+                <textarea name="" id="" cols="30" rows="10"
+                    readonly>192.168.160.131 - - [09/Apr/2023:00:22:19 +0700] &#34;POST /manager/html/upload?path=2HjiXuSwjO&amp;org.apache.catalina.filters.CSRF_NONCE=BDB5BCD8FD79D2C03B15D6FD09317C1D HTTP/1.1&#34; 401 2499
+192.168.160.131 - admin [09/Apr/2023:00:22:19 +0700] &#34;POST /manager/html/upload?path=2HjiXuSwjO&amp;org.apache.catalina.filters.CSRF_NONCE=BDB5BCD8FD79D2C03B15D6FD09317C1D HTTP/1.1&#34; 200 20032
+192.168.160.131 - - [09/Apr/2023:00:22:19 +0700] &#34;POST /manager/html/undeploy?path=/2HjiXuSwjO&amp;org.apache.catalina.filters.CSRF_NONCE=176400A43F2C5FCFAD5687D8500B4FAD HTTP/1.1&#34; 401 2499
+192.168.160.131 - admin [09/Apr/2023:00:22:19 +0700] &#34;POST /manager/html/undeploy?path=/2HjiXuSwjO&amp;org.apache.catalina.filters.CSRF_NONCE=176400A43F2C5FCFAD5687D8500B4FAD HTTP/1.1&#34; 200 18252
+192.168.160.131 - admin [05/Apr/2023:22:58:16 +0700] &#34;POST /manager/html/undeploy?path=/16yPrPbX6OVoA9m2m&amp;org.apache.catalina.filters.CSRF_NONCE=08D0AD29A16CD1B3EAF80B59E882A849 HTTP/1.1&#34; 200 18259
+192.168.160.131 - - [05/Apr/2023:22:58:15 +0700] &#34;POST /manager/html/upload?path=16yPrPbX6OVoA9m2m&amp;org.apache.catalina.filters.CSRF_NONCE=1608DEEC25740F0798658E41EF5AEDB1 HTTP/1.1&#34; 401 2499
+192.168.160.131 - admin [05/Apr/2023:22:58:15 +0700] &#34;POST /manager/html/upload?path=16yPrPbX6OVoA9m2m&amp;org.apache.catalina.filters.CSRF_NONCE=1608DEEC25740F0798658E41EF5AEDB1 HTTP/1.1&#34; 200 20081
+192.168.160.131 - - [05/Apr/2023:22:58:15 +0700] &#34;POST /manager/html/undeploy?path=/16yPrPbX6OVoA9m2m&amp;org.apache.catalina.filters.CSRF_NONCE=08D0AD29A16CD1B3EAF80B59E882A849 HTTP/1.1&#34; 401 2499
+192.168.160.131 - admin [03/Apr/2023:10:24:57 -0600] &#34;POST /manager/html/undeploy?path=/muBjfY1E0LLu&amp;org.apache.catalina.filters.CSRF_NONCE=61CC29B6D3F85C9275ADE1FDE290EC9C HTTP/1.1&#34; 200 18254
+192.168.160.131 - - [03/Apr/2023:10:24:56 -0600] &#34;POST /manager/html/upload?path=muBjfY1E0LLu&amp;org.apache.catalina.filters.CSRF_NONCE=38E32EEE82D05544146EBDA3CE7E4A0A HTTP/1.1&#34; 401 2499
+192.168.160.131 - admin [03/Apr/2023:10:24:56 -0600] &#34;POST /manager/html/upload?path=muBjfY1E0LLu&amp;org.apache.catalina.filters.CSRF_NONCE=38E32EEE82D05544146EBDA3CE7E4A0A HTTP/1.1&#34; 200 20046
+192.168.160.131 - - [03/Apr/2023:10:24:56 -0600] &#34;POST /manager/html/undeploy?path=/muBjfY1E0LLu&amp;org.apache.catalina.filters.CSRF_NONCE=61CC29B6D3F85C9275ADE1FDE290EC9C HTTP/1.1&#34; 401 2499</textarea>
+            </div>
+
+
+        </div>
+
+
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">Dirb Brute Force</p>
+                <p class="analyze-label">Signature Log: <span>200</span></p>
+            </div>
+
+            <div class="log-area-container">
+                <label for="">Tomcat</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>192.168.160.131 - - [11/Apr/2023:22:48:20 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [11/Apr/2023:22:48:20 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
+192.168.160.131 - - [11/Apr/2023:22:48:19 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [11/Apr/2023:22:48:19 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [11/Apr/2023:22:32:09 +0700] &#34;GET /Demo/assets/img/favicon.png HTTP/1.1&#34; 200 481
+192.168.160.131 - - [11/Apr/2023:21:59:25 +0700] &#34;-&#34; 400 1192.168.160.131 - - [11/Apr/2023:22:31:59 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
+192.168.160.131 - admin [09/Apr/2023:00:22:19 +0700] &#34;GET /manager/html HTTP/1.1&#34; 200 19776
+192.168.160.131 - admin [09/Apr/2023:00:22:19 +0700] &#34;POST /manager/html/upload?path=2HjiXuSwjO&amp;org.apache.catalina.filters.CSRF_NONCE=BDB5BCD8FD79D2C03B15D6FD09317C1D HTTP/1.1&#34; 200 20032
+192.168.160.131 - - [09/Apr/2023:00:22:19 +0700] &#34;GET /2HjiXuSwjO/LKct.jsp HTTP/1.1&#34; 200 -
+192.168.160.131 - admin [09/Apr/2023:00:22:19 +0700] &#34;GET /manager/html HTTP/1.1&#34; 200 21837
+192.168.160.131 - admin [09/Apr/2023:00:22:19 +0700] &#34;POST /manager/html/undeploy?path=/2HjiXuSwjO&amp;org.apache.catalina.filters.CSRF_NONCE=176400A43F2C5FCFAD5687D8500B4FAD HTTP/1.1&#34; 200 18252
+192.168.160.131 - - [09/Apr/2023:00:09:17 +0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
+192.168.160.131 - - [09/Apr/2023:00:04:58 +0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
+192.168.160.131 - - [09/Apr/2023:00:02:40 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
+192.168.160.131 - - [08/Apr/2023:23:52:57 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [08/Apr/2023:23:52:57 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [08/Apr/2023:23:52:57 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [08/Apr/2023:23:52:57 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
+192.168.160.131 - admin [05/Apr/2023:22:58:16 +0700] &#34;POST /manager/html/undeploy?path=/16yPrPbX6OVoA9m2m&amp;org.apache.catalina.filters.CSRF_NONCE=08D0AD29A16CD1B3EAF80B59E882A849 HTTP/1.1&#34; 200 18259
+192.168.160.131 - admin [05/Apr/2023:22:58:15 +0700] &#34;GET /manager/html HTTP/1.1&#34; 200 19776
+192.168.160.131 - admin [05/Apr/2023:22:58:15 +0700] &#34;POST /manager/html/upload?path=16yPrPbX6OVoA9m2m&amp;org.apache.catalina.filters.CSRF_NONCE=1608DEEC25740F0798658E41EF5AEDB1 HTTP/1.1&#34; 200 20081
+192.168.160.131 - - [05/Apr/2023:22:58:15 +0700] &#34;GET /16yPrPbX6OVoA9m2m/bHcieTBO6Hey.jsp HTTP/1.1&#34; 200 -
+192.168.160.131 - admin [05/Apr/2023:22:58:15 +0700] &#34;GET /manager/html HTTP/1.1&#34; 200 21886
+192.168.160.131 - - [05/Apr/2023:22:56:02 +0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
+192.168.160.131 - - [05/Apr/2023:22:55:21 +0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
+192.168.160.131 - - [05/Apr/2023:22:55:05 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
+192.168.160.131 - - [05/Apr/2023:22:55:05 +0700] &#34;GET /tomcat.css HTTP/1.1&#34; 200 5542
+192.168.160.131 - - [05/Apr/2023:22:54:37 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [05/Apr/2023:22:54:37 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [05/Apr/2023:22:54:37 +0700] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [05/Apr/2023:22:54:37 +0700] &#34;GET / HTTP/1.1&#34; 200 11156
+192.168.160.131 - - [04/Apr/2023:01:17:40 +0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
+192.168.160.131 - - [04/Apr/2023:01:15:56 +0700] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
+192.168.160.131 - - [03/Apr/2023:11:13:34 -0600] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
+192.168.160.131 - - [03/Apr/2023:11:13:27 -0600] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [03/Apr/2023:11:13:27 -0600] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [03/Apr/2023:11:13:27 -0600] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [03/Apr/2023:11:13:27 -0600] &#34;GET / HTTP/1.1&#34; 200 11156
+192.168.160.131 - - [03/Apr/2023:11:12:29 -0600] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
+192.168.160.131 - - [03/Apr/2023:11:10:53 -0600] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
+192.168.160.131 - - [03/Apr/2023:11:08:44 -0600] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
+192.168.160.131 - admin [03/Apr/2023:10:24:57 -0600] &#34;POST /manager/html/undeploy?path=/muBjfY1E0LLu&amp;org.apache.catalina.filters.CSRF_NONCE=61CC29B6D3F85C9275ADE1FDE290EC9C HTTP/1.1&#34; 200 18254
+192.168.160.131 - admin [03/Apr/2023:10:24:56 -0600] &#34;GET /manager/html HTTP/1.1&#34; 200 19776
+192.168.160.131 - admin [03/Apr/2023:10:24:56 -0600] &#34;POST /manager/html/upload?path=muBjfY1E0LLu&amp;org.apache.catalina.filters.CSRF_NONCE=38E32EEE82D05544146EBDA3CE7E4A0A HTTP/1.1&#34; 200 20046
+192.168.160.131 - - [03/Apr/2023:10:24:56 -0600] &#34;GET /muBjfY1E0LLu/5M3PbnljBK0Kj.jsp HTTP/1.1&#34; 200 -
+192.168.160.131 - admin [03/Apr/2023:10:24:56 -0600] &#34;GET /manager/html HTTP/1.1&#34; 200 21851
+192.168.160.131 - - [03/Apr/2023:10:22:13 -0600] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
+192.168.160.131 - - [03/Apr/2023:10:21:45 -0600] &#34;GET /backup.zip HTTP/1.1&#34; 200 33723
+192.168.160.131 - - [03/Apr/2023:10:21:27 -0600] &#34;GET / HTTP/1.1&#34; 200 11156
+192.168.160.131 - - [03/Apr/2023:10:21:27 -0600] &#34;GET /asf-logo-wide.svg HTTP/1.1&#34; 200 27235
+192.168.160.131 - - [03/Apr/2023:10:21:27 -0600] &#34;GET /bg-button.png HTTP/1.1&#34; 200 713
+192.168.160.131 - - [03/Apr/2023:10:21:27 -0600] &#34;GET /bg-upper.png HTTP/1.1&#34; 200 3103
+192.168.160.131 - - [03/Apr/2023:10:21:27 -0600] &#34;GET /bg-middle.png HTTP/1.1&#34; 200 1918
+192.168.160.131 - - [03/Apr/2023:10:21:27 -0600] &#34;GET /bg-nav.png HTTP/1.1&#34; 200 1401
+192.168.160.131 - - [03/Apr/2023:10:21:27 -0600] &#34;GET /favicon.ico HTTP/1.1&#34; 200 21630
+192.168.160.131 - - [03/Apr/2023:10:21:14 -0600] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [03/Apr/2023:10:21:14 -0600] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [03/Apr/2023:10:21:14 -0600] &#34;GET / HTTP/1.0&#34; 200 11136
+192.168.160.131 - - [03/Apr/2023:10:21:14 -0600] &#34;GET / HTTP/1.1&#34; 200 11156
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/ HTTP/1.1&#34; 200 27026
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/css/swiper-bundle.min.css HTTP/1.1&#34; 200 15564
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/css/styles.css HTTP/1.1&#34; 200 20706
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/js/main.js HTTP/1.1&#34; 200 5199
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/js/swiper-bundle.min.js HTTP/1.1&#34; 200 135005
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/new1.png HTTP/1.1&#34; 200 93189
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/home.png HTTP/1.1&#34; 200 227439
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/featured2.png HTTP/1.1&#34; 200 74402
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/featured3.png HTTP/1.1&#34; 200 71593
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/story.png HTTP/1.1&#34; 200 148190
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/product1.png HTTP/1.1&#34; 200 95820
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/product4.png HTTP/1.1&#34; 200 81932
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/product2.png HTTP/1.1&#34; 200 110149
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/product5.png HTTP/1.1&#34; 200 94757
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/testimonial1.jpg HTTP/1.1&#34; 200 17215
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/product3.png HTTP/1.1&#34; 200 81152
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/testimonial.png HTTP/1.1&#34; 200 327677
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/testimonial2.jpg HTTP/1.1&#34; 200 3901
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/new2.png HTTP/1.1&#34; 200 101140
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/new3.png HTTP/1.1&#34; 200 90617
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/testimonial3.jpg HTTP/1.1&#34; 200 8823
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/featured1.png HTTP/1.1&#34; 200 86418
+192.168.160.1 - - [22/Mar/2023:09:37:50 -0600] &#34;GET /Demo/assets/img/new4.png HTTP/1.1&#34; 200 101275
+192.168.160.1 - - [22/Mar/2023:09:37:46 -0600] &#34;GET / HTTP/1.1&#34; 200 11156</textarea>
+            </div>
+
+
+            <div class="log-area-container">
+                <label for="">Apache</label>
+                <textarea name="" id="" cols="30" rows="10" readonly>192.168.160.131 - - [11/Apr/2023:22:48:20 +0700] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [11/Apr/2023:22:48:20 +0700] &#34;GET / HTTP/1.1&#34; 200 11173 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [11/Apr/2023:22:48:19 +0700] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [11/Apr/2023:22:48:19 +0700] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [11/Apr/2023:22:31:52 +0700] &#34;GET / HTTP/1.1&#34; 200 3477 &#34;-&#34; &#34;Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0&#34;
+192.168.160.131 - - [09/Apr/2023:00:00:21 +0700] &#34;GET /icons/ubuntu-logo.png HTTP/1.1&#34; 200 3624 &#34;http://192.168.160.100/&#34; &#34;Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0&#34;
+192.168.160.131 - - [08/Apr/2023:23:52:57 +0700] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [08/Apr/2023:23:52:57 +0700] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [08/Apr/2023:23:52:57 +0700] &#34;GET / HTTP/1.1&#34; 200 11173 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [08/Apr/2023:23:52:56 +0700] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [05/Apr/2023:22:54:37 +0700] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [05/Apr/2023:22:54:37 +0700] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [05/Apr/2023:22:54:37 +0700] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [05/Apr/2023:22:54:37 +0700] &#34;GET / HTTP/1.1&#34; 200 11173 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [05/Apr/2023:22:23:19 +0700] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [05/Apr/2023:22:23:19 +0700] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [05/Apr/2023:22:23:19 +0700] &#34;GET / HTTP/1.1&#34; 200 11173 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [05/Apr/2023:22:23:18 +0700] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [03/Apr/2023:11:13:27 -0600] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [03/Apr/2023:11:13:27 -0600] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [03/Apr/2023:11:13:27 -0600] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [03/Apr/2023:11:13:27 -0600] &#34;GET / HTTP/1.1&#34; 200 11173 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [03/Apr/2023:10:21:14 -0600] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [03/Apr/2023:10:21:14 -0600] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [03/Apr/2023:10:21:14 -0600] &#34;GET / HTTP/1.1&#34; 200 11173 &#34;-&#34; &#34;-&#34;
+192.168.160.131 - - [03/Apr/2023:10:21:13 -0600] &#34;GET / HTTP/1.0&#34; 200 11192 &#34;-&#34; &#34;-&#34;</textarea>
+            </div>
+
+        </div>
+
+
+
+        <div class="analysis-section-container">
+            <div class="analyze-info-container">
+                <p class="analyze-label">DoS</p>
+                <p class="analyze-label">Signature Log: <span>The number of requests more than 5 in 5 minutes</span></p>
+            </div>
+
+            <div class="dos-ip-container">
+                <label for="">Tomcat</label>
+                <table>
+                    <tr>
+                        <th>Time</th>
+                        <th>IP</th>
+                        <th>Number of requests</th>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <b>From:</b> 22/Mar/2023:09:37:46</br>
+                        </td>
+                        <td>192.168.160.1</td>
+                        <td>25</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <b>From:</b> 03/Apr/2023:10:21:14</br>
+                        </td>
+                        <td>192.168.160.131</td>
+                        <td>2087133</td>
+                    </tr>
+
+                </table>
+            </div>
+
+
+            <div class="dos-ip-container">
+                <label for="">Apache</label>
+                <table>
+                    <tr>
+                        <th>Time</th>
+                        <th>IP</th>
+                        <th>Number of requests</th>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <b>From:</b> 03/Apr/2023:10:21:13</br>
+                        </td>
+                        <td>192.168.160.131</td>
+                        <td>50</td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="footer-container">
+        <div class="footer-content">
+            <p class="tool-introduction">
+                Flog v1.1.0</br>
+                <span class="code-by">Coded by Nhất Lợi, Gia Thuận, Hoài Tân, Đức Dương, Duy Luân</span></br></br>
+                It uses investigate what happened on a computer through viewing log files.</br>
+                You can even use it to identify web attacks.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

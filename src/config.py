@@ -128,7 +128,7 @@ class MenuConfig:
     subMenu = """
 + Enter an action:
   1. Back
-  2. Eixt
+  2. Exit
 """
 #   3. Analyze System Log
 
