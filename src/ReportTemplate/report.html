@@ -144,6 +144,7 @@
         </div>
         {% endif %}
 
+        {% if data.detectedAttackType%}
         <div class="analysis-section-container">
             <div class="analyze-info-container">
                 <p class="analyze-label">SQL injection</p>
@@ -155,7 +156,6 @@
             <div class="log-area-container">
                 <label for="">Tomcat</label>
                 <textarea name="" id="" cols="30" rows="10" readonly>
-                    No detect attack
                 </textarea>
             </div>
             {% endif %}
@@ -164,7 +164,6 @@
             <div class="log-area-container">
                 <label for="">Apache</label>
                 <textarea name="" id="" cols="30" rows="10" readonly>
-                    No detect attack
                 </textarea>
             </div>
             {% endif %}
@@ -181,7 +180,6 @@
             <div class="log-area-container">
                 <label for="">Tomcat</label>
                 <textarea name="" id="" cols="30" rows="10" readonly>
-                    No detect attack
                 </textarea>
             </div>
             {% endif %}
@@ -190,12 +188,12 @@
             <div class="log-area-container">
                 <label for="">Apache</label>
                 <textarea name="" id="" cols="30" rows="10" readonly>
-                    No detect attack
                 </textarea>
             </div>
             {% endif %}
 
         </div>
+        {% endif %}
 
         {% if data.dosAttack %}
         {% if data.dosAttack.tomcat or data.dosAttack.apache %}
